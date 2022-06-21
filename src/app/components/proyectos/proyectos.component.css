@@ -1,0 +1,21 @@
+.row {
+    padding:30px;
+}
+.container{
+    width:auto;
+}
+.descripcion1, .img1 {
+    display: inline-block;
+    text-align: justify;
+    margin-left: 40px;
+}
+
+.imgp1 {
+    box-shadow: 8px 8px 30px  rgba(95, 95, 95, 0.89);
+    border: 5px solid #3e5f68;
+    border-radius:5px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    -ms-border-radius:5px;
+    -o-border-radius:5px;
+}
