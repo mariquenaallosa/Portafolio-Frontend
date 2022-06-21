@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+// Import ng-circle-progress
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 @Component({
   selector: 'app-root',
