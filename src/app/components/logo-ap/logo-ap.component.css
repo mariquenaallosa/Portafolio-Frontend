@@ -11,12 +11,18 @@ button {
     margin-right:10px;
 }
 .container{
-    display:flex;justify-content:space-between; 
+    display:flex;
+    justify-content:space-between; 
     align-items:center;
 }
 .btn{
     border-width: 2px;
 }
+
+
+
+
+
 /* Arreglos para version mobile */
 @media (max-width: 575px){
 .container {
