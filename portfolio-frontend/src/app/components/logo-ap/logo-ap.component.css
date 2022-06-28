@@ -19,7 +19,13 @@ button {
     border-width: 2px;
 }
 
-
+p{
+    color: white;
+    margin-left: 45px;
+    margin-top: -30px;
+    font-size: 14px;
+    font-weight: bold;
+}
 
 
 
