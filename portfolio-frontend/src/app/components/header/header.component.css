@@ -1,10 +1,18 @@
 
 div {
     background-color: #3e5f68;
-    padding:5px;
+    margin-top: -5px;
+    margin-bottom: -8px;
 }
 
 app-social {
     float: right;
     margin-top: 20px;
+}
+
+
+@media only screen and (max-width:575px){
+   div {
+        padding-bottom: 20px;
+    }
 }
