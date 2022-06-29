@@ -3,16 +3,22 @@
 }
 div{
     background-color:#fff;
-    text-align:center;
     color:#000;
+    text-align: center;
 }
+
+.acercademi p{
+    text-align: justify;
+}
+/* Nombre y trabajo */
+
 .nombre {
     font-weight:bold;
-    margin-top:5%;
     font-size:20px;
-    margin:auto;
+    margin-bottom: 0px;
 }
-/* Estilo de la foto de perfil */
+
+/* Estilo de la foto de perfil y nombre */
 @media only screen and (min-width:576px){
     .fotodeperfil{
         background-color: #fff;
@@ -26,13 +32,18 @@ div{
         top: 350px;
        
 }
+     .datospersonales{
+        position:relative;
+        margin-top:90px;
+        margin-left:35px;
+        text-align: left;
+     }
 }
 
+
 @media only screen and (max-width:575px){
-    .containerfoto{
-        position:relative;
-        
-    }
+
+
     .fotodeperfil{
         background-color: #fff;
         padding:3px;
@@ -47,4 +58,5 @@ div{
         -o-border-radius: 100%; */
        margin-top: -150px;
     }
+
 }
