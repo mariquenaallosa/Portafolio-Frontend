@@ -8,3 +8,23 @@ div {
 h3, h4 {
     display:inline;
 }
+
+.hardSkills-container{
+    display:grid;
+    grid-template-columns: repeat(auto-fill,minmax(150px,1fr));
+    grid-gap:10px;
+    padding:10px;
+    margin:20px 10px;
+}
+.softSkills-container{
+    display:grid;
+    grid-template-columns: repeat(auto-fill,minmax(150px,1fr));
+    grid-gap:10px;
+    padding:10px;
+    margin:20px 10px;
+}
+.circle-container{
+    font-weight: bolder;
+    align-items: center;
+    text-align: center;
+}
