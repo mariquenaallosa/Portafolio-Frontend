@@ -29,3 +29,8 @@ h3, h4 {
     align-items: center;
     text-align: center;
 }
+
+circle-progress:hover{
+    filter: drop-shadow(2px 2px 2px rgb(53, 53, 53));
+    -webkit-filter: drop-shadow(2px 2px 2px rgb(53, 53, 53));
+}

@@ -8,6 +8,11 @@
     margin-right: 10px;
     margin-top: -2px;
 }
+
+
+.redes img:hover {
+    filter: drop-shadow(2px 2px 1px rgb(53, 53, 53));
+}
 button {
     margin-right:10px;
     color:#3e5f68;
@@ -15,16 +20,17 @@ button {
     font-weight: bold;
     text-transform:uppercase;
     padding:4px;
-    transition:all 1s;
-    -moz-transition:all 1s;
-    -ms-transition:all 1s;
-    -o-transition:all 1s;
-    -webkit-transition:all 1s;
+    transition:all 0.8s;
+    -webkit-transition:all 0.8s;
+    -moz-transition:all 0.8s;
+    -ms-transition:all 0.8s;
+    -o-transition:all 0.8s;
 }
 
 button:hover {
     color:#fff;
-    background-color:#3e5f68;
+    background-color:#3e5f68;filter: drop-shadow(2px 2px 1px rgb(53, 53, 53));
+
 }
 
 button:focus{
