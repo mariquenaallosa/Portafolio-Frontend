@@ -31,6 +31,6 @@ h3, h4 {
 }
 
 circle-progress:hover{
-    filter: drop-shadow(2px 2px 2px rgb(53, 53, 53));
-    -webkit-filter: drop-shadow(2px 2px 2px rgb(53, 53, 53));
+    filter: drop-shadow(3px 3px 2px rgb(53, 53, 53));
+    -webkit-filter: drop-shadow(3px 3px 2px rgb(53, 53, 53));
 }
