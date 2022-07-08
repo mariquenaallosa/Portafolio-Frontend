@@ -9,5 +9,5 @@ public class MariquenaAllosaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MariquenaAllosaApplication.class, args);
 	}
-
+        
 }
