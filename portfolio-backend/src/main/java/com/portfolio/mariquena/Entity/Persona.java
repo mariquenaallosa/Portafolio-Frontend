@@ -1,6 +1,7 @@
 
 package com.portfolio.mariquena.Entity;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,7 +17,7 @@ import lombok.Setter;
 
 @Getter @Setter
 @Entity
-public class Persona {
+public class Persona implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -33,7 +34,7 @@ public class Persona {
     
     
     
-    @Size (min=1, max=50, message="No cumplecon la condición")
+    @Size (min=1, max=50, message="No cumple con la condición")
     private String img;
     /**VER LO DE IMG**/
     

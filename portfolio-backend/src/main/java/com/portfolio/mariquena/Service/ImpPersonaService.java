@@ -3,7 +3,7 @@ package com.portfolio.mariquena.Service;
 
 import com.portfolio.mariquena.Entity.Persona;
 import com.portfolio.mariquena.Repository.IPersonaRepository;
-import com.portfolio.mariquena.dto.IPersonaService;
+import com.portfolio.mariquena.Interface.IPersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,17 +27,17 @@ public class ImpPersonaService implements IPersonaService{
 
     @Override
     public void savePersona(Persona persona) {
-        ipersonaRepository.save (persona);
+        ipersonaRepository.save(persona);
     }
 
     @Override
     public void deletePersona(Long id) {
-        ipersonaRepository.deleteById (id);
+        ipersonaRepository.deleteById(id);
 
     }
 
     @Override
-    public Persona findPersona(Long id) {
+    public Persona findPersona(Long id){
         Persona persona = ipersonaRepository.findById(id).orElse(null);
         return persona;
 
