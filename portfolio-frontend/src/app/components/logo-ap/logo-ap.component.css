@@ -12,6 +12,7 @@
 
 .redes img:hover {
     filter: drop-shadow(2px 2px 1px rgb(53, 53, 53));
+    -webkit-filter: drop-shadow(2px 2px 1px rgb(53, 53, 53));
 }
 
 
