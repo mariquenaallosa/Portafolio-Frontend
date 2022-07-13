@@ -4,6 +4,7 @@ import com.portfolio.mariquena.Entity.Persona;
 import com.portfolio.mariquena.Interface.IPersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,12 +24,14 @@ public class PersonaController {
     
    //Declarando métodos 
     //Para que nos traiga al front (hablando en criollo) 
+    
     @GetMapping("personas/traer")
     public List<Persona> getPersona(){
         return ipersonaService.getPersona();
     }
     
     //Desde el front guardame esto en la base de datos
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping ("/personas/crear")
     public String createPersona(@RequestBody Persona persona){
         ipersonaService.savePersona(persona);
@@ -38,6 +41,7 @@ public class PersonaController {
     
     
     //Borrar persona
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/personas/borrar/{id}")
     public String seletePersona (@PathVariable Long id){
         ipersonaService.deletePersona(id);
@@ -49,6 +53,7 @@ public class PersonaController {
     //Editar persona
     
     //URL:PUERTO/personas/editar/4?nombre&apellido&img
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/personas/editar/{id}")
     public Persona editPersona(@PathVariable Long id,
             @RequestParam("nombre") String nuevoNombre,
