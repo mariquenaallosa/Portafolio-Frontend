@@ -1,20 +1,38 @@
 <div class="wrapper">
     <div class="logo">
-        <img src="../../../assets/acceso.png" alt="">
+      <img src="../../../assets/acceso.png" alt="" />
     </div>
-    
-    <form class="p-3 mt-3">
-        <div class="form-field d-flex align-items-center">
-            <span class="far fa-user"></span>
-            <input type="text" name="userName" id="userName" placeholder="Nombre de usuario">
-        </div>
-        <div class="form-field d-flex align-items-center">
-            <span class="fas fa-key"></span>
-            <input type="password" name="password" id="pwd" placeholder="Contraseña">
-        </div>
-        <button class="btn mt-3">Login</button>
+  
+    <form class="p-3 mt-3" action="" #f="ngForm" (ngSubmit)="OnLogin()" novalidate>
+      <div class="form-field d-flex align-items-center">
+        <span class="far fa-user"></span>
+       
+        <input
+          type="text"
+          name="nombreUsuario"
+          id="nombreUsuario"
+          placeholder="Nombre de usuario"
+          [(ngModel)]="nombreUsuario" required
+        />
+      </div>
+      <div class="form-field d-flex align-items-center">
+        <span class="fas fa-key"></span>
+        
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Contraseña"
+          [(ngModel)]="password"
+                    required
+        />
+      </div>
+      <button class="btn mt-3">Login</button>
+  
+      <div class="text-center fs-6">
+        <!-- <a href="#">
+          Forget password?</a> or -->
+           <a href="#">Sign up</a>
+      </div>
     </form>
-    <div class="text-center fs-6">
-        <a href="#">Forget password?</a> or <a href="#">Sign up</a>
-    </div>
-</div>
+  </div>
