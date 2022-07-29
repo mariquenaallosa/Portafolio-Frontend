@@ -47,7 +47,8 @@ import { NewExperienciaComponent } from './components/experiencia/new-experienci
     BrowserAnimationsModule,
     FormsModule,
     NgCircleProgressModule.forRoot({}),
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     interceptorProvider

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PersonaService } from './service/persona.service';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'PrInt_MA';
+  
+ 
 }
