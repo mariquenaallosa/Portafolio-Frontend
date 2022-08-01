@@ -22,6 +22,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { interceptorProvider } from './service/interceptor-service';
 import { NewExperienciaComponent } from './components/experiencia/new-experiencia.component';
+import { NewEducacionComponent } from './components/educacion/new-educacion.component';
 
 
 
@@ -39,7 +40,8 @@ import { NewExperienciaComponent } from './components/experiencia/new-experienci
     FooterComponent,
     HomeComponent,
     LoginComponent,
-    NewExperienciaComponent
+    NewExperienciaComponent,
+    NewEducacionComponent
   ],
   imports: [
     BrowserModule,
