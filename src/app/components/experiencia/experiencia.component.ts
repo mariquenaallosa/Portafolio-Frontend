@@ -10,6 +10,8 @@ import { TokenService } from 'src/app/service/token.service';
 })
 export class ExperienciaComponent implements OnInit {
   expe: Experiencia[] = [];
+  router: any;
+  activatedRoute: any;
 
   constructor(private sExperiencia: SExperienciaService, private tokenService: TokenService) { }
 
@@ -39,4 +41,5 @@ export class ExperienciaComponent implements OnInit {
     });
     }
   }
+  
 }
