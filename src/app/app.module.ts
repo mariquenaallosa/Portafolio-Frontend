@@ -21,8 +21,9 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { interceptorProvider } from './service/interceptor-service';
-import { NewExperienciaComponent } from './components/experiencia/new-experiencia.component';
 import { NewEducacionComponent } from './components/educacion/new-educacion.component';
+import {MatIconModule} from '@angular/material/icon';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -40,8 +41,8 @@ import { NewEducacionComponent } from './components/educacion/new-educacion.comp
     FooterComponent,
     HomeComponent,
     LoginComponent,
-    NewExperienciaComponent,
-    NewEducacionComponent
+    NewEducacionComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -50,7 +51,9 @@ import { NewEducacionComponent } from './components/educacion/new-educacion.comp
     FormsModule,
     NgCircleProgressModule.forRoot({}),
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule,
+    FontAwesomeModule,
   ],
   providers: [
     interceptorProvider

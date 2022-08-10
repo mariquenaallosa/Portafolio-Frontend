@@ -1,18 +1,51 @@
 <div class="row">
-    <h1>Experiencia laboral</h1>
-    <div class="col-lg-2">
-        <button type="button" class="btn btn-dark" routerLink="/nuevaedu" *ngIf="isLogged">
-            Nueva Experiencia
-        </button>
+  <h1>Educación</h1>
+  <div class="col-lg-2">
+    <button
+      type="button"
+      class="btn btn-circle btn-dark"
+      routerLink="/nuevaedu"
+      *ngIf="isLogged"
+    >
+      Agregar Educación
+    </button>
+  </div>
+  <div class="col-lg-1"></div>
+  <div class="container">
+    <div class="row">
+      <div class="info-item card" *ngFor="let Educacion of educacion">
+        <h3 class="card-header">{{ Educacion.tituloEd }}</h3>
+        <div class="card-body">
+            <div class="container-buttonIcon">
+                <div *ngIf="isLogged" class="container-button">
+                    <button
+                      class="btn btn-light"
+                      routerLink="/editedu/{{ Educacion.id }}"
+                    >
+                    <img class="button-icon edit" src="../../../assets/edit.svg">
+                    </button>
+                  </div>
+                  <div *ngIf="isLogged" class="container-button">
+                    <button class="btn btn-danger" (click)="delete(Educacion.id)">
+                      <img class="button-icon trash" src="../../../assets/trash.svg">
+                    </button>
+                  </div>
+            </div>
+          <h4 class="card-title">
+            <em>{{ Educacion.institucion }}</em>
+          </h4>
+          <h5 class="card-subtitle mb-2 text-muted">
+            {{ Educacion.fechaIngreso }}-{{ Educacion.fechaFinal }}
+          </h5>
+          <p class="card-text">{{ Educacion.descripcionEd }}</p>
+         
+        </div>
+      </div>
     </div>
+  </div>
+</div>
 
-    <div class="col-lg-10">
-        <table class="table">
-            <tbody>
-                <tr *ngFor="let Educacion of educacion">
-                    <td>
-                        <h2>{{Educacion.tituloEd}}</h2>
-                    </td>
+<!-- 
                     <td>{{Educacion.descripcionEd}}</td>
                     <td *ngIf="isLogged">
                         <button class="btn btn-light" routerLink="/editedu/{{Educacion.id}}">
@@ -21,10 +54,5 @@
                     <td *ngIf="isLogged">
                         <button class="btn btn-danger" (click)="delete(Educacion.id)">
                             <i class="bi bi-trash-fill"></i> BORRAR</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-</div>
+                    </td> -->
+                

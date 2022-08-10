@@ -2,23 +2,29 @@
     <h1>Experiencia laboral</h1>
     <div class="col-lg-2">
         <!-- routerLink="/nuevaexp" -->
-        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModalCenter"  *ngIf="isLogged" >
+        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#expModal" *ngIf="isLogged" routerLink="/nuevaexp">
             Nueva Experiencia
-        </button>
+          </button>
     </div>
-
+<!--  -->
          
-    <div class="col-lg-11">
+    <div class="col-lg-10">
         <table class="table">
             <tbody>
-                <tr *ngFor="let Experiencia of expe">
+                <tr *ngFor="let Experiencia of experiencia">
                     <td>
-                        <h2>{{Experiencia.nombreE}}</h2>
+                        <h2>{{Experiencia.tituloExp}}</h2>
+                    </td>
+                    <td>
+                        <h2>{{Experiencia.empleador}}</h2>
+                    </td>
+                    <td>
+                        <h2>{{Experiencia.fechaIngreso}}</h2>
                     </td>
                     <td>{{Experiencia.descripcionE}}</td>
                     <td *ngIf="isLogged">
-                        <button class="btn btn-light" routerLink="/editexp/{{Experiencia.id}}">
-                            <i class="bi bi-pencil-fill"></i> EDITAR</button>
+                        <button class="btn btn-light">
+                            <i class="bi bi-pencil-fill"></i>EDITAR</button>
                     </td>
                     <td *ngIf="isLogged">
                         <button class="btn btn-danger" (click)="delete(Experiencia.id)">
@@ -28,5 +34,88 @@
             </tbody>
         </table>
     </div>
+  
 
-</div>
+
+
+    <!-- MODAL -->
+      
+
+      <div class="modal fade" id="expModal" tabindex="-1" role="dialog" aria-labelledby="expModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title" id="expModalLabel">Experiencia Laboral</h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)="onCreate()" novalidate #f="ngForm"id="formExp">
+                    <div class="form-group">
+                      <label for="tituloExp">Cargo</label>
+                      <input
+                        type="text"
+                        name="tituloExp"
+                        id="tituloExp"
+                        class="form-control"
+                        [(ngModel)]="tituloExp"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="empleador">Empresa</label>
+                      <input
+                        type="text"
+                        name="empleador"
+                        id="empleador"
+                        class="form-control"
+                        [(ngModel)]="empleador"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="fechaIngreso">Año de Ingreso</label>
+                      <input
+                        type="number"
+                        name="fechaIngreso"
+                        id="fechaIngreso"
+                        class="form-control"
+                        [(ngModel)]="fechaIngreso"
+                        required
+                      />
+                    </div>
+
+                    <div class="form-group">
+                      <label for="fechaFinal">Año de Finalización</label>
+                      <input
+                        type="number"
+                        name="fechaFinal"
+                        id="fechaFinal"
+                        class="form-control"
+                        [(ngModel)]="fechaFinal"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="descripcionEd">Descripción</label>
+                      <input
+                        type="text"
+                        name="descripcionE"
+                        id="descripcionE"
+                        class="form-control"
+                        [(ngModel)]="descripcionE"
+                        required
+                      />
+                    </div>
+                  </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-ligth" data-dismiss="modal">Cerrar</button>
+            
+                <button type="submit" id="btnGuardar" class="btn btn-dark"> Guardar </button>
+              
+            </div>
+          </div>
+        </div>
+      </div>
