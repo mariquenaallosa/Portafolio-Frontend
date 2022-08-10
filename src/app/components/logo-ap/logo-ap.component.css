@@ -63,14 +63,14 @@ p{
 /* Arreglos para version mobile */
 @media (max-width: 575px){
 .container {
-    flex-direction: column;
+    flex-direction: row;
 }
 .redes{
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items:center;
 }
 .redes img {
-    margin: 0.2em
+    margin: 0.15em
 }
 }

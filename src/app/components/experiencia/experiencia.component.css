@@ -8,3 +8,6 @@ div {
 h3, h4 {
     display:inline;
 }
+.modal{
+    background-color: transparent;
+}

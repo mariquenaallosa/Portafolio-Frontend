@@ -8,3 +8,36 @@ div {
 h3, h4 {
     display:inline;
 }
+.card {
+    width: 18rem;
+    padding:5px;
+    margin:10px;
+}
+.card:hover{
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+.card-header{
+    color:#fff;
+    background-color: #3e5f68;
+}
+.continer-button{
+    width:0.8rem;
+    height: 0.8rem;
+    text-align: center;
+}
+
+img.button-icon.edit{
+    width:0.9rem;
+}
+img.button-icon.trash{
+    filter:invert(100%);
+    -webkit-filter:invert(100%);
+    width: 0.68rem;
+}
+.container-buttonIcon{
+    display:flex;
+    justify-content: end;
+    align-items:flex-end;
+    margin-top: -25px;
+    margin-left: -15px;
+}

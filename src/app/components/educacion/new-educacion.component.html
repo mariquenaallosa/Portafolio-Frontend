@@ -3,8 +3,20 @@
         <div>
             <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
                 <div class="form-group">
-                    <label for="nombreEd">Titulo</label>
-                    <input type="text" name="nombreEd" id="nombreEd" class="form-control" [(ngModel)]="tituloEd" required>
+                    <label for="tituloEd">Titulo</label>
+                    <input type="text" name="tituloEd" id="tituloEd" class="form-control" [(ngModel)]="tituloEd" required>
+                </div>
+                <div class="form-group">
+                    <label for="institucion">Institución</label>
+                    <input type="text" name="institucion" id="institucion" class="institucion" [(ngModel)]="institucion" required>
+                </div>
+                <div class="form-group">
+                    <label for="fechaIngreso">Año de Ingreso</label>
+                    <input type="number" name="fechaIngreso" id="fechaIngreso" class="fechaIngreso" [(ngModel)]="fechaIngreso" required>
+                </div>
+                <div class="form-group">
+                    <label for="fechaFinal">Año de Finalización</label>
+                    <input type="number" name="fechaFinal" id="fechaFinal" class="fechaFinal" [(ngModel)]="fechaFinal" required>
                 </div>
                 <div class="form-group">
                     <label for="descripcionEd">Descripción</label>

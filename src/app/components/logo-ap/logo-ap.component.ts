@@ -8,7 +8,6 @@ import { TokenService } from 'src/app/service/token.service';
   styleUrls: ['./logo-ap.component.css']
 })
 export class LogoAPComponent implements OnInit {
-
 isLogged = false;
 
 

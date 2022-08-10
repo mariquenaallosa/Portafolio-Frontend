@@ -1,10 +1,93 @@
 <div class="row">
-    <div class="col-xs-12 containerfoto">
+    <div class="col-xs-11 containerfoto">
         <img src="../../../assets/profilePhoto.jpg" alt="Foto de perfil" class="img-fluid fotodeperfil">
     </div>
+    <div class="container-edit" *ngIf="isLogged">
+        <button type="button" class="col-xs-1 btn btn-ligth edit" data-bs-toggle="modal" data-bs-target="#personaModal">
+            <img src="../../../assets/edit.svg">
+        </button>
+    </div>
+
+
+
+    <!-- MODAL -->
+    <div class="modal fade" id="personaModal" tabindex="-1" aria-labelledby="personaModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title" id="personaModalLabel">Datos Personales</h3>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form >
+                    <div class="form-group">
+                      <label for="tituloExp">Cargo</label>
+                      <input
+                        type="text"
+                        name="tituloExp"
+                        id="tituloExp"
+                        class="form-control"
+                        
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="empleador">Empresa</label>
+                      <input
+                        type="text"
+                        name="empleador"
+                        id="empleador"
+                        class="form-control"
+                        
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="fechaIngreso">Año de Ingreso</label>
+                      <input
+                        type="number"
+                        name="fechaIngreso"
+                        id="fechaIngreso"
+                        class="form-control"
+                        
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="descripcionEd">Descripción</label>
+                      <input
+                        type="text"
+                        name="descripcionE"
+                        id="descripcionE"
+                        class="form-control"
+                        
+                        required
+                      />
+                    </div>
+                  </form>
+            
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary">Guradar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- termina modal -->
     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 containerinfo datospersonales">
         <p class="nombre"> {{persona.nombre}} {{persona.apellido}}</p>
-        <p>Full Stack Developer Jr</p>
+        <p>{{persona.titulo}}</p>
     </div>
     <div  class="acercademi col-xs-12 col-sm-8 col-md-8 col-lg-8">
         <!-- <span> -->

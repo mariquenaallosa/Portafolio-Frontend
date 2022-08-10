@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PersonaService } from './service/persona.service';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +9,7 @@ import { PersonaService } from './service/persona.service';
 })
 export class AppComponent {
   title = 'PrInt_MA';
+  faCoffee = faCoffee;
   
  
 }

@@ -18,6 +18,27 @@ div{
     margin-bottom: 0px;
 }
 
+/* Edit */
+div.container-edit{
+    display:flex;
+    justify-content: end;
+    
+}
+button.edit{
+    padding:4px;
+}
+div.container-edit img{
+    width: 0.9rem;
+}
+.modal{
+    background-color: transparent;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
 /* Estilo de la foto de perfil y nombre */
 @media only screen and (min-width:576px){
     .fotodeperfil{
@@ -34,11 +55,14 @@ div{
 }
      .datospersonales{
         position:relative;
-        margin-top:90px;
-        margin-left:35px;
+        margin-top:70px;
+        margin-left:25px;
         text-align: left;
      }
 }
+
+
+
 
 
 @media only screen and (max-width:575px){
@@ -57,6 +81,12 @@ div{
         -ms-border-radius: 100%;
         -o-border-radius: 100%; */
        margin-top: -150px;
+    }
+    .container-edit{
+        display:flex;
+        flex-direction: row-reverse;
+        align-items: flex-start ;
+
     }
 
 }
