@@ -10,7 +10,6 @@
       data-toggle="modal"
       data-target="#expModal"
       *ngIf="isLogged"
-      routerLink="/nuevaexp"
     >
     <img src="../../../assets/btnagregar.png" alt="boton para agregar">
     </button>
@@ -27,7 +26,9 @@
                 <div *ngIf="isLogged" class="container-button">
                     <button
                       class="btn btn-light"
-                      routerLink="/editedu/{{ Experiencia.id }}"
+                      data-toggle="modal"
+                      data-target="#expModal"
+                      
                     >
                     <img class="button-icon edit" src="../../../assets/edit.svg">
                     </button>
@@ -77,7 +78,7 @@
         </div>
         <div class="modal-body">
           <!--form -->
-          <form  (ngSubmit)="onCreate()" novalidate #f="ngForm" routerLink="/nuevaexp">
+          <form  (ngSubmit)="onCreate()" novalidate #f="ngForm">
             <div class="form-group">
               <label for="tituloExp">Cargo</label>
               <input
@@ -85,7 +86,6 @@
                 [(ngModel)]="tituloExp"
                 name="tituloExp"
                 id="tituloExp"
-                placeholder="Cargo"
                 class="form-control"
                 required
               />
@@ -111,6 +111,7 @@
                         name="fechaIngreso"
                         id="fechaIngreso"
                         class="form-control"
+                        placeholder=1970
                         [(ngModel)]="fechaIngreso"
                         required
                       />
@@ -125,6 +126,7 @@
                         name="fechaFinal"
                         id="fechaFinal"
                         class="form-control"
+                        placeholder=2022
                         [(ngModel)]="fechaFinal"
                         required
                       />

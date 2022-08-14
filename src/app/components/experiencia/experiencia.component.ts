@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Educacion } from 'src/app/model/educacion';
 import { Experiencia } from 'src/app/model/experiencia';
 import { SExperienciaService } from 'src/app/service/s-experiencia.service';
 import { TokenService } from 'src/app/service/token.service';
@@ -10,7 +11,7 @@ import { TokenService } from 'src/app/service/token.service';
   styleUrls: ['./experiencia.component.css']
 })
 export class ExperienciaComponent implements OnInit {
-  experiencia : Experiencia[] =[];
+  experiencia : Experiencia[] = [];
   tituloExp: string = '';
   empleador: string = '';
   fechaIngreso: number = 0;
@@ -64,18 +65,16 @@ export class ExperienciaComponent implements OnInit {
     }
   }
 
-  onUpdate(): void{
-        const id = this.activatedRouter.snapshot.params['id'];
-        this.sExperiencia.update(id, this.experiencia).subscribe(
-          data => {
-            this.router.navigate(['']);
-          }, err => {
-            alert("Error al modificar la educacion");
-            this.router.navigate(['']);
-          }
-        )
-      }
-  
-
+// onUpdate(id?: number){
+//   const id =this.activatedRouter.snapshot.params["id"];
+//   this.sExperiencia.update(id, this.experiencia).subscribe(
+//     data => {
+//       this.router.navigate(['']);
+//     }, err => {
+//       alert("Error al modificar la educacion");
+//       this.router.navigate(['']);
+//     }
+//   )
+// }
   
 }
