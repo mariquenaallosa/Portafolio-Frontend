@@ -12,7 +12,7 @@
       *ngIf="isLogged"
       routerLink="/nuevaexp"
     >
-     
+    <img src="../../../assets/btnagregar.png" alt="boton para agregar">
     </button>
   </div>
   <!--  -->
@@ -90,22 +90,8 @@
                 required
               />
             </div>
-<<<<<<< Updated upstream
-            <div class="modal-body">
-                <form (ngSubmit)="onCreate()" novalidate #f="ngForm"id="formExp">
-                    <div class="form-group">
-                      <label for="tituloExp">Cargo</label>
-                      <input
-                        type="text"
-                        name="tituloExp"
-                        id="tituloExp"
-                        class="form-control"
-                        [(ngModel)]="tituloExp"
-                        required
-                      />
-                    </div>
-                    <div class="form-group">
-                      <label for="empleador">Empresa</label>
+            <div class="form-group">
+                <label for="empleador">Empresa</label>
                       <input
                         type="text"
                         name="empleador"
@@ -149,67 +135,21 @@
                         required
                       />
                     </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-ligth" data-dismiss="modal">
+                        Cerrar
+                      </button>
+                      <button
+                        type="submit"
+                        id="btnGuardar"
+                        class="btn btn-dark"
+                      >
+                        Agregar Experiencia
+                      </button>
+                     </div>
                   </form>
-=======
-            <div class="form-group">
-              <label for="empleador">Empresa</label>
-              <input
-                type="text"
-                [(ngModel)]="empleador"
-                name="empleador"
-                id="empleador"
-                class="form-control"
-                required
-              />
->>>>>>> Stashed changes
-            </div>
-            <div class="form-group">
-              <label for="fechaIngreso">Año de Ingreso</label>
-              <input
-                type="number"
-                [(ngModel)]="fechaIngreso"
-                name="fechaIngreso"
-                id="fechaIngreso"
-                class="form-control"
-                required
-              />
-            </div>
-          
-            <div class="form-group">
-              <label for="fechaFinal">Año de Finalización</label>
-              <input
-                type="number"
-                [(ngModel)]="fechaFinal"
-                name="fechaFinal"
-                id="fechaFinal"
-                class="form-control"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <label for="descripcionEd">Descripción</label>
-              <input
-                type="text"
-                [(ngModel)]="descripcionE"
-                name="descripcionE"
-                id="descripcionE"
-                class="form-control"
-                required
-              />
-            </div>
-           <div class="modal-footer">
-            <button type="button" class="btn btn-ligth" data-dismiss="modal">
-              Cerrar
-            </button>
-            <button
-              type="submit"
-              id="btnGuardar"
-              class="btn btn-dark"
-            >
-              Agregar Experiencia
-            </button>
-           </div>
-          </form>
+           
+
         </div>
       </div>
     </div>
