@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Experiencia } from 'src/app/model/experiencia';
 import { SExperienciaService } from 'src/app/service/s-experiencia.service';
 import { TokenService } from 'src/app/service/token.service';
@@ -18,7 +18,7 @@ export class ExperienciaComponent implements OnInit {
   descripcionE: string = '';
 
 
-  constructor(private sExperiencia: SExperienciaService, private tokenService: TokenService, private router: Router) { }
+  constructor(private sExperiencia: SExperienciaService, private tokenService: TokenService, private router: Router,private activatedRouter : ActivatedRoute) { }
   
 
   isLogged = false;
@@ -64,6 +64,17 @@ export class ExperienciaComponent implements OnInit {
     }
   }
 
+  onUpdate(): void{
+        const id = this.activatedRouter.snapshot.params['id'];
+        this.sExperiencia.update(id, this.experiencia).subscribe(
+          data => {
+            this.router.navigate(['']);
+          }, err => {
+            alert("Error al modificar la educacion");
+            this.router.navigate(['']);
+          }
+        )
+      }
   
 
   
