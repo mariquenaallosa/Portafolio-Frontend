@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Experiencia } from 'src/app/model/experiencia';
 import { SExperienciaService } from 'src/app/service/s-experiencia.service';
@@ -13,9 +13,10 @@ export class ExperienciaComponent implements OnInit {
   experiencia : Experiencia[] =[];
   tituloExp: string = '';
   empleador: string = '';
-  fechaIngreso: number = 2022;
-  fechaFinal: number = 2025;
+  fechaIngreso: number = 0;
+  fechaFinal: number = 0;
   descripcionE: string = '';
+
 
   constructor(private sExperiencia: SExperienciaService, private tokenService: TokenService, private router: Router) { }
   
@@ -30,6 +31,21 @@ export class ExperienciaComponent implements OnInit {
       this.isLogged = false;
     }
   }
+
+  onCreate(): void {
+    const experiencia = new Experiencia(this.tituloExp, this.empleador, this.fechaIngreso,this.fechaFinal, this.descripcionE);
+    this.sExperiencia.save(experiencia).subscribe(
+      data=> {
+        alert("Experiencia añadida");
+        this.router.navigate(['']);
+        window.location.reload();
+      }, err=> {
+        alert("Falló");
+        this.router.navigate(['']);
+      }
+    );
+  }
+
 
 
   cargarExperiencia(): void {
@@ -48,18 +64,7 @@ export class ExperienciaComponent implements OnInit {
     }
   }
 
-  onCreate(): void {
-    const experiencia = new Experiencia(this.tituloExp, this.empleador, this.fechaIngreso,this.fechaFinal, this.descripcionE);
-    this.sExperiencia.save(experiencia).subscribe(
-      data=> {
-        alert("Experiencia añadida");
-        this.router.navigate(['']);
-      }, err=> {
-        alert("Falló");
-        this.router.navigate(['']);
-      }
-    );
-  }
+  
 
   
 }

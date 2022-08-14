@@ -8,6 +8,22 @@ div {
 h3, h4 {
     display:inline;
 }
+.container-ed{
+    display:flex;
+    justify-content: space-between;
+}
+.redondo{
+    display: block;
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    align-self: center;
+    background-color: #3e5f68;
+}
+button img{
+    width:100%
+}
+
 .card {
     width: 18rem;
     padding:5px;

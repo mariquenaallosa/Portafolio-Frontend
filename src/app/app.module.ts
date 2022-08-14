@@ -27,6 +27,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HomeComponent,
     LoginComponent,
     NewEducacionComponent,
-   
   ],
   imports: [
     BrowserModule,
