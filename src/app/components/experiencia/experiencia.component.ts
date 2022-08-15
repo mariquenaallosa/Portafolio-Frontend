@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Educacion } from 'src/app/model/educacion';
 import { Experiencia } from 'src/app/model/experiencia';
@@ -12,17 +13,20 @@ import { TokenService } from 'src/app/service/token.service';
 })
 export class ExperienciaComponent implements OnInit {
   experiencia : Experiencia[] = [];
+  // experienciaList :any;
   tituloExp: string = '';
   empleador: string = '';
-  fechaIngreso: number = 0;
-  fechaFinal: number = 0;
+  fechaIngreso: number = 2000;
+  fechaFinal: number = 2022;
   descripcionE: string = '';
 
 
-  constructor(private sExperiencia: SExperienciaService, private tokenService: TokenService, private router: Router,private activatedRouter : ActivatedRoute) { }
+  
+  isLogged = false;
+  constructor(private sExperiencia: SExperienciaService, private tokenService: TokenService, private router: Router,private activatedRouter : ActivatedRoute, private fb: FormBuilder) { }
   
 
-  isLogged = false;
+
 
   ngOnInit(): void {
     this.cargarExperiencia();
@@ -64,17 +68,16 @@ export class ExperienciaComponent implements OnInit {
     });
     }
   }
-
-// onUpdate(id?: number){
-//   const id =this.activatedRouter.snapshot.params["id"];
-//   this.sExperiencia.update(id, this.experiencia).subscribe(
-//     data => {
-//       this.router.navigate(['']);
-//     }, err => {
-//       alert("Error al modificar la educacion");
-//       this.router.navigate(['']);
-//     }
-//   )
-// }
+  // onUpdate(): void{
+  //   const id = this.activatedRouter.snapshot.params['id'];
+  //   this.sExperiencia.update(id, this.experiencia).subscribe(
+  //     data => {
+  //       this.router.navigate(['']);
+  //     }, err => {
+  //       alert("Error al modificar la educacion");
+  //       this.router.navigate(['']);
+  //     }
+  //   )
+  // }
   
 }

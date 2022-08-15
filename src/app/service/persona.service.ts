@@ -12,10 +12,14 @@ import { persona } from '../model/persona.model';
 export class PersonaService {
   URL ='http://localhost:8080/personas/';
 
+
   constructor(private http: HttpClient) {}
 
   public getPersona(): Observable<persona>{
     return this.http.get<persona> (this.URL + 'traer/perfil');
+  }
+  public save(persona: persona): Observable<any>{
+    return this.http.post<persona>(this.URL + 'create', persona);
   }
 }
 

@@ -36,7 +36,7 @@ export class EducacionComponent implements OnInit {
         alert("No se pudo borrar la experiencia");
       } 
     });
-    }
+    } 
   }
-
+  
 }
