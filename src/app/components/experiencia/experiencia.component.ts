@@ -1,10 +1,9 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Experiencia } from 'interfaces';
 import { SExperienciaService } from 'src/app/service/s-experiencia.service';
 import { TokenService } from 'src/app/service/token.service';
@@ -17,13 +16,13 @@ import { TokenService } from 'src/app/service/token.service';
 export class ExperienciaComponent implements OnInit {
   experienciaList: Experiencia[] = [];
   isLogged = false;
-
   experienciaForm: FormGroup;
+ 
+
 
   constructor(
     private sExperiencia: SExperienciaService,
     private tokenService: TokenService,
-    private router: Router,
     private fb: FormBuilder
   ) {
     this.experienciaForm = this.fb.group({
@@ -37,16 +36,18 @@ export class ExperienciaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
     if (this.tokenService.getToken()) {
       this.isLogged = true;
     } else {
       this.isLogged = false;
     }
     this.reloadData();
+  
   }
 
   reloadData() {
-    this.sExperiencia.ObtenerDatosExperiencia().subscribe((data) => {
+    this.sExperiencia.obtenerDatosExperiencia().subscribe((data) => {
       this.experienciaList = data;
     });
   }
@@ -72,28 +73,26 @@ export class ExperienciaComponent implements OnInit {
       descripcionE: experiencia.descripcionE
     });
   }
+ 
 
   onSubmit() {
+     console.log(this.experienciaForm.value);
     let experiencia: Experiencia = this.experienciaForm.value;
     if (this.experienciaForm.get('id')?.value == '') {
       this.sExperiencia
-        .saveExperiencia(experiencia)
+        .crearDatosExperiencia(experiencia)
         .subscribe((nuevaexperiencia: Experiencia) => {
           this.experienciaList.push(nuevaexperiencia);
           this.reloadData();
           window.location.reload();
         });
     } else {
-      this.sExperiencia.saveExperiencia(experiencia).subscribe(
+      this.sExperiencia.crearDatosExperiencia(experiencia).subscribe(
         (data) => {
-          alert('Experiencia añadida');
-          this.router.navigate(['']);
           this.reloadData();
-          window.location.reload();
         },
         (err) => {
           alert('Falló');
-          this.router.navigate(['']);
         }
       );
     }
@@ -103,10 +102,14 @@ export class ExperienciaComponent implements OnInit {
     this.clearForm();
   }
 
-  onEditarExperiencia(index: number){
+  
+onEditarExperiencia(index: number){
     let experiencia: Experiencia = this.experienciaList[index];
-    this.loadForm(experiencia);    
+    this.loadForm(experiencia);   
+   
   }
+       
+  
   
   onEliminarExperiencia(index: number){
     let experiencia: Experiencia = this.experienciaList[index];

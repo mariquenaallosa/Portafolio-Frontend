@@ -14,16 +14,22 @@ h3, h4 {
 }
 .redondo{
     display: block;
-    width: 43px;
-    height: 43px;
+    padding:3px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     align-self: center;
     background-color: #3e5f68;
 }
+.redondo:hover{
+    background-color: #141b1d;
+}
 button img{
     width:100%
 }
-
+.modal{
+    background-color: transparent;
+}
 .card {
     width: 18rem;
     padding:5px;

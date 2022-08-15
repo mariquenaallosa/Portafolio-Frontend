@@ -1,0 +1,262 @@
+
+
+<!-- softSkill -->
+
+<div class="row">
+    <div class="col-lg-12 container-SS">
+    <h2>Soft skills</h2>
+    <button
+  type="button"
+  class="btn btn-circle btn-dark redondo"
+  data-toggle="modal"
+  data-target="#softSkillForm"
+  *ngIf="isLogged"
+  (click)="onNew()"
+>
+  <img src="../../../assets/btnagregar.png" alt="boton para agregar" />
+</button>
+  </div>
+    
+  <div class="softSkills-container">
+    <div class="circle-container" *ngFor="let softSkill of softSkillsList; let i = index">
+      <circle-progress
+        [percent]="90"
+        [showImage]="true"
+        [showUnits]="false"
+        [title]="'TEAM'"
+        [subtitle]="'hola'"
+        [titleColor]="'#fff'"
+        [titleFontSize]="'5'"
+        [showTitle]="true"
+        [radius]="60"
+        [outerStrokeWidth]="6"
+        [innerStrokeWidth]="2"
+        [outerStrokeColor]="'#fff'"
+        [innerStrokeColor]="'#fff'"
+        [animation]="true"
+        [animationDuration]="800"
+        [showImage]="true"
+        [imageSrc]="'../assets/teamwork.png'"
+        [imageWidth]="70"
+        [imageHeight]="70"
+      ></circle-progress>
+      <p>Trabajo en equipo</p>
+    </div>
+
+    <div class="circle-container">
+      <circle-progress
+        [percent]="90"
+        [showImage]="true"
+        [showUnits]="false"
+        [title]="'TEAM'"
+        [subtitle]="'hola'"
+        [titleColor]="'#fff'"
+        [titleFontSize]="'5'"
+        [showTitle]="true"
+        [radius]="60"
+        [outerStrokeWidth]="6"
+        [innerStrokeWidth]="2"
+        [outerStrokeColor]="'#fff'"
+        [innerStrokeColor]="'#fff'"
+        [animation]="true"
+        [animationDuration]="800"
+        [showImage]="true"
+        [imageSrc]="'../assets/compromiso.png'"
+        [imageWidth]="70"
+        [imageHeight]="70"
+      ></circle-progress>
+      <p>Compromiso</p>
+    </div>
+
+    <div class="circle-container">
+      <circle-progress
+        [percent]="90"
+        [showImage]="true"
+        [showUnits]="false"
+        [title]="'TEAM'"
+        [subtitle]="'hola'"
+        [titleColor]="'#fff'"
+        [titleFontSize]="'5'"
+        [showTitle]="true"
+        [radius]="60"
+        [outerStrokeWidth]="6"
+        [innerStrokeWidth]="2"
+        [outerStrokeColor]="'#fff'"
+        [innerStrokeColor]="'#fff'"
+        [animation]="true"
+        [animationDuration]="800"
+        [showImage]="true"
+        [imageSrc]="'../assets/crecimiento.png'"
+        [imageWidth]="70"
+        [imageHeight]="70"
+      ></circle-progress>
+      <p>Mentalidad de crecimiento</p>
+    </div>
+
+    <div class="circle-container">
+      <circle-progress
+        [percent]="90"
+        [showImage]="true"
+        [showUnits]="false"
+        [title]="'TEAM'"
+        [subtitle]="'hola'"
+        [titleColor]="'#fff'"
+        [titleFontSize]="'5'"
+        [showTitle]="true"
+        [radius]="60"
+        [outerStrokeWidth]="6"
+        [innerStrokeWidth]="2"
+        [outerStrokeColor]="'#fff'"
+        [innerStrokeColor]="'#fff'"
+        [animation]="true"
+        [animationDuration]="800"
+        [showImage]="true"
+        [imageSrc]="'../assets/aprendizaje.png'"
+        [imageWidth]="70"
+        [imageHeight]="70"
+      ></circle-progress>
+      <p>Aprendizaje constante</p>
+    </div>
+
+    <div class="circle-container">
+      <circle-progress
+        [percent]="90"
+        [showImage]="true"
+        [showUnits]="false"
+        [title]="'TEAM'"
+        [subtitle]="'hola'"
+        [titleColor]="'#fff'"
+        [titleFontSize]="'5'"
+        [showTitle]="true"
+        [radius]="60"
+        [outerStrokeWidth]="6"
+        [innerStrokeWidth]="2"
+        [outerStrokeColor]="'#fff'"
+        [innerStrokeColor]="'#fff'"
+        [animation]="true"
+        [animationDuration]="800"
+        [showImage]="true"
+        [imageSrc]="'../assets/flexibilidad.png'"
+        [imageWidth]="70"
+        [imageHeight]="70"
+      ></circle-progress>
+      <p>Flexibilidad</p>
+    </div>
+
+    <div class="circle-container">
+      <circle-progress
+        [percent]="90"
+        [showImage]="true"
+        [showUnits]="false"
+        [radius]="60"
+        [outerStrokeWidth]="6"
+        [innerStrokeWidth]="2"
+        [outerStrokeColor]="'#fff'"
+        [innerStrokeColor]="'#fff'"
+        [animation]="true"
+        [animationDuration]="800"
+        [showImage]="true"
+        [imageSrc]="'../assets/gestiontiempo.png'"
+        [imageWidth]="70"
+        [imageHeight]="70"
+      ></circle-progress>
+      <p>Productividad</p>
+    </div>
+
+    <div class="circle-container">
+      <circle-progress
+        [percent]="90"
+        [showImage]="true"
+        [showUnits]="false"
+        [radius]="60"
+        [outerStrokeWidth]="6"
+        [innerStrokeWidth]="2"
+        [outerStrokeColor]="'#fff'"
+        [innerStrokeColor]="'#fff'"
+        [animation]="true"
+        [animationDuration]="800"
+        [showImage]="true"
+        [imageSrc]="'../assets/inteligencia-emocional.png'"
+        [imageWidth]="70"
+        [imageHeight]="70"
+      ></circle-progress>
+      <p>Inteligencia emocional</p>
+    </div>
+  </div>
+</div>
+<!-- softSkillsForm -->
+<div
+  class="modal fade"
+  id="softSkillForm"
+  tabindex="-1"
+  aria-labelledby="softSkillForm"
+  aria-hidden="true"
+>
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="softSkillFormLabel">
+        softSkillForm
+      </h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="softSkillForm" (ngSubmit)="onSubmit()">
+        <input type="hidden" name="id" formControlName="id" />
+
+        <div class="form-group">
+            <label for="skillsLevel">Skills Level</label>
+            <input
+              type="text"
+              formControlName="skillsLevel"
+              name="skillsLevel"
+              id="skillsLevel"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="nombreSkill">Skill</label>
+  
+            <input
+              type="text"
+              name="nombreSkill"
+              id="nombreSkill"
+              class="form-control"
+              formControlName="nombreSkill"
+              required
+            />
+          </div>
+          
+          <div class="form-group">
+            <label for="imgSkill">Imagen</label>
+            <input
+              type="text"
+              name="imgSkill"
+              id="imgSkill"
+              class="form-control"
+              formControlName="imgSkill"
+              required
+            />
+          </div>
+        <div class="modal-footer">
+          <button 
+          type="button" 
+          class="btn btn-ligth" 
+          data-dismiss="modal">
+            Cerrar
+          </button>
+          <button
+            type="submit"
+            data-bs-toggle="modal"
+            id="btnGuardar"
+            class="btn btn-dark"
+          >
+            Guardar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>

@@ -5,55 +5,155 @@
     <button
       type="button"
       class="btn btn-circle btn-dark redondo"
-      routerLink="/nuevaedu"
+      data-toggle="modal"
+      data-target="#educacionForm"
       *ngIf="isLogged"
+      (click)="onNewEd()"
     >
-    <img src="../../../assets/btnagregar.png" alt="boton para agregar">
+      <img src="../../../assets/btnagregar.png" alt="boton para agregar" />
     </button>
   </div>
   <div class="col-lg-1"></div>
   <!-- Tarjetas con el contenido de la educación -->
+
   <div class="container">
     <div class="row">
-      <div class="info-item card" *ngFor="let Educacion of educacion">
-        <h3 class="card-header">{{ Educacion.tituloEd }}</h3>
+      <div
+        class="info-item card"
+        *ngFor="let educacion of educacionList; let i = index"
+      >
+        <h3 class="card-header">{{ educacion.tituloEd }}</h3>
         <div class="card-body">
-            <div class="container-buttonIcon">
-                <div *ngIf="isLogged" class="container-button">
-                    <button
-                      class="btn btn-light"
-                    >
-                    <img class="button-icon edit" src="../../../assets/edit.svg">
-                    </button>
-                  </div>
-                  <div *ngIf="isLogged" class="container-button">
-                    <button class="btn btn-danger" (click)="delete(Educacion.id)">
-                      <img class="button-icon trash" src="../../../assets/trash.svg">
-                    </button>
-                  </div>
+          <div class="container-buttonIcon">
+            <div *ngIf="isLogged" class="container-button">
+              <button class="btn btn-light" 
+                data-bs-toggle="modal"
+                data-bs-target="#educacionForm"
+                (click)="onEditarEducacion(i)">
+                <img class="button-icon edit" src="../../../assets/edit.svg" />
+              </button>
             </div>
+            <div *ngIf="isLogged" class="container-button">
+              <button class="btn btn-danger" (click)="onEliminarEducacion(i)">
+                <img
+                  class="button-icon trash"
+                  src="../../../assets/trash.svg"
+                />
+              </button>
+            </div>
+          </div>
           <h4 class="card-title">
-            <em>{{ Educacion.institucion }}</em>
+            <em>{{ educacion.institucion }}</em>
           </h4>
           <h5 class="card-subtitle mb-2 text-muted">
-            {{ Educacion.fechaIngreso }}-{{ Educacion.fechaFinal }}
+            {{ educacion.fechaIngreso }}-{{ educacion.fechaFinal }}
           </h5>
-          <p class="card-text">{{ Educacion.descripcionEd }}</p>
-         
+          <p class="card-text">{{educacion.descripcionEd}}</p>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- 
-                    <td>{{Educacion.descripcionEd}}</td>
-                    <td *ngIf="isLogged">
-                        <button class="btn btn-light" routerLink="/editedu/{{Educacion.id}}">
-                            <i class="bi bi-pencil-fill"></i> EDITAR</button>
-                    </td>
-                    <td *ngIf="isLogged">
-                        <button class="btn btn-danger" (click)="delete(Educacion.id)">
-                            <i class="bi bi-trash-fill"></i> BORRAR</button>
-                    </td> -->
-                
+<!-- MODAL FORM Educacion -->
+<div
+  class="modal fade"
+  id="educacionForm"
+  tabindex="-1"
+  aria-labelledby="educacionFormLabel"
+  aria-hidden="true"
+>
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="educacionFormLabel">
+        Educacion
+      </h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="educacionForm" (ngSubmit)="onSubmit()">
+        <input type="hidden" name="id" formControlName="id" />
+
+        <div class="form-group">
+          <label for="tituloEd">Titulo</label>
+          <input
+            type="text"
+            formControlName="tituloEd"
+            name="tituloEd"
+            id="tituloEd"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="institucion">Institución</label>
+
+          <input
+            type="text"
+            name="institucion"
+            id="institucion"
+            class="form-control"
+            formControlName="institucion"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="fechaIngreso">Año de Ingreso</label>
+          <input
+            type="number"
+            min="1970"
+            max="2022"
+            name="fechaIngreso"
+            id="fechaIngreso"
+            class="form-control"
+            formControlName="fechaIngreso"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="fechaFinal">Año de Finalización</label>
+          <input
+            type="number"
+            min="1970"
+            max="2022"
+            name="fechaFinal"
+            id="fechaFinal"
+            class="form-control"
+            formControlName="fechaFinal"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="descripcionEd">Descripción</label>
+          <input
+            type="text"
+            name="descripcionEd"
+            id="descripcionEd"
+            class="form-control"
+            formControlName="descripcionEd"
+            required
+          />
+        </div>
+        <div class="modal-footer">
+          <button 
+          type="button" 
+          class="btn btn-ligth" 
+          data-dismiss="modal">
+            Cerrar
+          </button>
+          <button
+            type="submit"
+            data-bs-toggle="modal"
+            id="btnGuardar"
+            class="btn btn-dark"
+          >
+            Guardar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>

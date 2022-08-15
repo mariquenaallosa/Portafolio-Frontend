@@ -1,0 +1,340 @@
+<div class="row">
+    <div class="col-lg-12 container-HS">
+      <h2>Hard skills</h2>
+    <!-- Botón para agregar nueva educación -->
+    <button
+    type="button"
+    class="btn btn-circle btn-dark redondo"
+    data-toggle="modal"
+    data-target="#hardSkillForm"
+    *ngIf="isLogged"
+    (click)="onNew()"
+  >
+    <img src="../../../assets/btnagregar.png" alt="boton para agregar" />
+  </button>
+    </div>
+    
+    <div class="hardSkills-container" >
+      <div class="circle-container" *ngFor="let hardSkill of hardSkillsList; let i = index">
+        <circle-progress
+          [percent]="95"
+          [showImage]="true"
+          [imageSrc]="'../assets/html.png'"
+          [imageWidth]="60"
+          [imageHeight]="60"
+          [showUnits]="false"
+          [radius]="60"
+          [outerStrokeWidth]="6"
+          [innerStrokeWidth]="2"
+          [outerStrokeColor]="'#fff'"
+          [innerStrokeColor]="'#fff'"
+          [animation]="true"
+          [animationDuration]="800"
+        ></circle-progress>
+        <p>HTML</p>
+      </div>
+  
+      <div class="circle-container">
+        <circle-progress
+          [percent]="90"
+          [showImage]="true"
+          [imageSrc]="'../assets/css.png'"
+          [imageWidth]="60"
+          [imageHeight]="60"
+          [showUnits]="false"
+          [radius]="60"
+          [outerStrokeWidth]="6"
+          [innerStrokeWidth]="2"
+          [outerStrokeColor]="'#fff'"
+          [innerStrokeColor]="'#fff'"
+          [animation]="true"
+          [animationDuration]="800"
+        ></circle-progress>
+        <p>CSS</p>
+      </div>
+  
+      <div class="circle-container">
+        <circle-progress
+          [percent]="85"
+          [showImage]="true"
+          [imageSrc]="'../assets/bootstrap.png'"
+          [imageWidth]="80"
+          [imageHeight]="70"
+          [showUnits]="false"
+          [radius]="60"
+          [outerStrokeWidth]="6"
+          [innerStrokeWidth]="2"
+          [outerStrokeColor]="'#fff'"
+          [innerStrokeColor]="'#fff'"
+          [animation]="true"
+          [animationDuration]="800"
+        ></circle-progress>
+        <p>Bootstrap</p>
+      </div>
+      <div class="circle-container">
+        <circle-progress
+          [percent]="50"
+          [showImage]="true"
+          [imageSrc]="'../assets/js.png'"
+          [imageWidth]="60"
+          [imageHeight]="60"
+          [showUnits]="false"
+          [radius]="60"
+          [outerStrokeWidth]="6"
+          [innerStrokeWidth]="2"
+          [outerStrokeColor]="'#fff'"
+          [innerStrokeColor]="'#fff'"
+          [animation]="true"
+          [animationDuration]="800"
+        ></circle-progress>
+        <p>JavaScript</p>
+      </div>
+  
+      <div class="circle-container">
+        <circle-progress
+          [percent]="50"
+          [showImage]="true"
+          [imageSrc]="'../assets/typescript.png'"
+          [imageWidth]="65"
+          [imageHeight]="65"
+          [showUnits]="false"
+          [radius]="60"
+          [outerStrokeWidth]="6"
+          [innerStrokeWidth]="2"
+          [outerStrokeColor]="'#fff'"
+          [innerStrokeColor]="'#fff'"
+          [animation]="true"
+          [animationDuration]="800"
+        ></circle-progress>
+        <p>TypeScript</p>
+      </div>
+  
+      <div class="circle-container">
+        <circle-progress
+          [percent]="66"
+          [showImage]="true"
+          [imageSrc]="'../assets/Angular.png'"
+          [imageWidth]="90"
+          [imageHeight]="90"
+          [showUnits]="false"
+          [radius]="60"
+          [outerStrokeWidth]="6"
+          [innerStrokeWidth]="2"
+          [outerStrokeColor]="'#fff'"
+          [innerStrokeColor]="'#fff'"
+          [animation]="true"
+          [animationDuration]="800"
+        ></circle-progress>
+        <p>Angular</p>
+      </div>
+  
+      <div class="circle-container">
+        <circle-progress
+          [percent]="40"
+          [showImage]="true"
+          [imageSrc]="'../assets/java.png'"
+          [imageWidth]="90"
+          [imageHeight]="80"
+          [showUnits]="false"
+          [radius]="60"
+          [outerStrokeWidth]="6"
+          [innerStrokeWidth]="2"
+          [outerStrokeColor]="'#fff'"
+          [innerStrokeColor]="'#fff'"
+          [animation]="true"
+          [animationDuration]="800"
+        ></circle-progress>
+        <p>Java</p>
+      </div>
+  
+      <div class="circle-container">
+        <circle-progress
+          [percent]="60"
+          [showImage]="true"
+          [imageSrc]="'../assets/spring.png'"
+          [imageWidth]="80"
+          [imageHeight]="70"
+          [showUnits]="false"
+          [radius]="60"
+          [outerStrokeWidth]="6"
+          [innerStrokeWidth]="2"
+          [outerStrokeColor]="'#fff'"
+          [innerStrokeColor]="'#fff'"
+          [animation]="true"
+          [animationDuration]="800"
+        ></circle-progress>
+        <p>Spring</p>
+      </div>
+  
+      <div class="circle-container">
+        <circle-progress
+          [percent]="80"
+          [showImage]="true"
+          [imageSrc]="'../assets/mysql.png'"
+          [imageWidth]="70"
+          [imageHeight]="65"
+          [showUnits]="false"
+          [radius]="60"
+          [outerStrokeWidth]="6"
+          [innerStrokeWidth]="2"
+          [outerStrokeColor]="'#fff'"
+          [innerStrokeColor]="'#fff'"
+          [animation]="true"
+          [animationDuration]="800"
+        ></circle-progress>
+        <p>MySQL</p>
+      </div>
+  
+      <div class="circle-container">
+        <circle-progress
+          [percent]="80"
+          [showImage]="true"
+          [imageSrc]="'../assets/photoshop.png'"
+          [imageWidth]="70"
+          [imageHeight]="65"
+          [showUnits]="false"
+          [radius]="60"
+          [outerStrokeWidth]="6"
+          [innerStrokeWidth]="2"
+          [outerStrokeColor]="'#fff'"
+          [innerStrokeColor]="'#fff'"
+          [animation]="true"
+          [animationDuration]="800"
+        ></circle-progress>
+        <p>Photoshop</p>
+      </div>
+      <div class="circle-container">
+        <circle-progress
+          [percent]="80"
+          [showImage]="true"
+          [imageSrc]="'../assets/ilustrador.png'"
+          [imageWidth]="70"
+          [imageHeight]="65"
+          [showUnits]="false"
+          [radius]="60"
+          [outerStrokeWidth]="6"
+          [innerStrokeWidth]="2"
+          [outerStrokeColor]="'#fff'"
+          [innerStrokeColor]="'#fff'"
+          [animation]="true"
+          [animationDuration]="800"
+        ></circle-progress>
+        <p>Ilustrator</p>
+      </div>
+  
+      <div class="circle-container">
+        <circle-progress
+          [percent]="80"
+          [showImage]="true"
+          [imageSrc]="'../assets/git.png'"
+          [imageWidth]="70"
+          [imageHeight]="70"
+          [showUnits]="false"
+          [radius]="60"
+          [outerStrokeWidth]="6"
+          [innerStrokeWidth]="2"
+          [outerStrokeColor]="'#fff'"
+          [innerStrokeColor]="'#fff'"
+          [animation]="true"
+          [animationDuration]="800"
+        ></circle-progress>
+        <p>Git</p>
+      </div>
+  
+      <div class="circle-container">
+        <circle-progress
+          [percent]="90"
+          [showImage]="true"
+          [imageSrc]="'../assets/github1.png'"
+          [imageWidth]="70"
+          [imageHeight]="70"
+          [showUnits]="false"
+          [radius]="60"
+          [outerStrokeWidth]="6"
+          [innerStrokeWidth]="2"
+          [outerStrokeColor]="'#fff'"
+          [innerStrokeColor]="'#fff'"
+          [animation]="true"
+          [animationDuration]="800"
+        ></circle-progress>
+        <p>Github</p>
+      </div>
+    </div>
+    </div>
+  <!-- MODAL HSkills -->
+  <div
+    class="modal fade"
+    id="hardSkillForm"
+    tabindex="-1"
+    aria-labelledby="hardSkillFormLabel"
+    aria-hidden="true"
+  >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="hardSkillFormLabel">
+          Hard Skills
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="hardSkillForm" (ngSubmit)="onSubmit()">
+          <input type="hidden" name="id" formControlName="id" />
+  
+          <div class="form-group">
+            <label for="skillsLevel">Skills Level</label>
+            <input
+              type="text"
+              formControlName="skillsLevel"
+              name="skillsLevel"
+              id="skillsLevel"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="nombreSkill">Skill</label>
+  
+            <input
+              type="text"
+              name="nombreSkill"
+              id="nombreSkill"
+              class="form-control"
+              formControlName="nombreSkill"
+              required
+            />
+          </div>
+          
+          <div class="form-group">
+            <label for="imgSkill">Imagen</label>
+            <input
+              type="text"
+              name="imgSkill"
+              id="imgSkill"
+              class="form-control"
+              formControlName="imgSkill"
+              required
+            />
+          </div>
+          <div class="modal-footer">
+            <button 
+            type="button" 
+            class="btn btn-ligth" 
+            data-dismiss="modal">
+              Cerrar
+            </button>
+            <button
+              type="submit"
+              data-bs-toggle="modal"
+              id="btnGuardar"
+              class="btn btn-dark"
+            >
+              Guardar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+  

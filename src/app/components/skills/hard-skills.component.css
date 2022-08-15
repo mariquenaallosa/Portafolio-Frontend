@@ -1,0 +1,51 @@
+.row {
+    padding:30px;
+}
+div {
+    background-color: #3e5f68;
+    color: #fff;
+}
+h3, h4 {
+    display:inline;
+}
+.container-HS{
+    display:flex;
+    justify-content: space-between;
+}
+button img{
+    width:100%
+}
+.redondo{
+    display: block;
+    width: 43px;
+    height: 43px;
+    border:solid 1px #fff;
+    border-radius: 50%;
+    align-self: center;
+    background-color: #aeaeae84;
+}
+.redondo:hover{
+    background-color: #25393e
+}
+.modal{
+    background-color: transparent;
+}
+
+.hardSkills-container{
+    display:grid;
+    grid-template-columns: repeat(auto-fill,minmax(150px,1fr));
+    grid-gap:10px;
+    padding:10px;
+    margin:20px 10px;
+}
+
+.circle-container{
+    font-weight: bolder;
+    align-items: center;
+    text-align: center;
+}
+
+circle-progress:hover{
+    filter: drop-shadow(3px 3px 2px rgb(53, 53, 53));
+    -webkit-filter: drop-shadow(3px 3px 2px rgb(53, 53, 53));
+}

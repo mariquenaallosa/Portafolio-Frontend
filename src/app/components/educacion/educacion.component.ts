@@ -1,42 +1,109 @@
 import { Component, OnInit } from '@angular/core';
-import { Educacion } from 'src/app/model/educacion';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Educacion } from 'interfaces';
 import { EducacionService } from 'src/app/service/educacion.service';
 import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-educacion',
   templateUrl: './educacion.component.html',
-  styleUrls: ['./educacion.component.css']
+  styleUrls: ['./educacion.component.css'],
 })
 export class EducacionComponent implements OnInit {
-  educacion: Educacion[] = [];
-  constructor(private educacionS: EducacionService, private tokenService: TokenService) { }
-
+  educacionList: Educacion[] = [];
   isLogged = false;
 
-  ngOnInit(): void {
-    this.cargarEducacion();
+
+  educacionForm: FormGroup;
+
+  constructor(
+    private educacionS: EducacionService,
+    private tokenService: TokenService,
+    private fb: FormBuilder
+  ) {
+    this.educacionForm = this.fb.group({
+      id: [''],
+      tituloEd: ['', [Validators.required]],
+      institucion: ['', [Validators.required]],
+      fechaIngreso: ['', [Validators.required]],
+      fechaFinal: ['', [Validators.required]],
+      descripcionEd: ['', [Validators.required]],
+    });
+  }
+
+ngOnInit(): void {
     if (this.tokenService.getToken()) {
       this.isLogged = true;
     } else {
       this.isLogged = false;
     }
+    this.reloadData();
   }
 
-  cargarEducacion(): void {
-    this.educacionS.lista().subscribe(data => { this.educacion = data; })
-  }
-
-  delete(id?: number){
-    if(id != undefined){
-      this.educacionS.delete(id).subscribe(
-        {next: data => { this.cargarEducacion();
-        }, 
-        error : err => {
-        alert("No se pudo borrar la experiencia");
-      } 
+  private reloadData() {
+    this.educacionS.obtenerDatosEducacion().subscribe((data) => {
+      this.educacionList = data;
     });
-    } 
   }
-  
+
+  private clearForm() {
+    this.educacionForm.setValue({
+      id:'',
+      tituloEd:'',
+      institucion:'',
+      fechaIngreso:'',
+      fechaFinal:'',
+      descripcionEd:'',
+    });
+  }
+
+  private loadForm(educacion: Educacion) {
+    this.educacionForm.setValue({
+      id: educacion.id,
+      tituloEd: educacion.tituloEd,
+      institucion: educacion.institucion,
+      fechaIngreso: educacion.fechaIngreso,
+      fechaFinal: educacion.fechaFinal,
+      descripcionEd: educacion.descripcionEd,
+    });
+  }
+
+  onSubmit() {
+    console.log(this.educacionForm.value);
+   let educacion: Educacion = this.educacionForm.value;
+   if (this.educacionForm.get('id')?.value == '') {
+     this.educacionS.crearDatosEducacion(educacion).subscribe(
+      (nuevaeducacion: Educacion) => {
+         this.educacionList.push(nuevaeducacion);
+         this.reloadData();
+         window.location.reload();
+       });
+   } else {
+     this.educacionS.crearDatosEducacion(educacion).subscribe(
+       (data) => {
+         this.reloadData();
+       },
+       (err) => {
+         alert('Falló');
+       }
+     );
+   }
+ }
+
+  onNewEd() {
+    this.clearForm();
+  }
+
+  onEditarEducacion(index: number) {
+    let educacion: Educacion = this.educacionList[index];
+    this.loadForm(educacion);
+  }
+  onEliminarEducacion(index: number) {
+    let educacion: Educacion = this.educacionList[index];
+    if (confirm('¿Está seguro que desea borrar la educación?')) {
+      this.educacionS.eliminarDatosEducacion(educacion.id).subscribe(() => {
+        this.reloadData();
+      });
+    }
+  }
 }
