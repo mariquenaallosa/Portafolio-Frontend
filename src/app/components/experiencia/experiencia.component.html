@@ -1,7 +1,7 @@
 <hr />
 <div class="row">
   <div class="col-lg-12 container-exp">
-    <h1 class="section">Experiencia laboral</h1>
+    <h2 class="section">Experiencia laboral</h2>
     <button
       type="button"
       class="btn btn-dark nuevaexp redondo"
@@ -15,8 +15,8 @@
   </div>
   <!-- Experiencia -->
 
-  <div class="col-lg-1"></div>
-  <div class="container">
+  
+  <div class="container col-lg-10">
     <div class="row">
       <div
         class="info-item card"
@@ -36,7 +36,7 @@
               </button>
             </div>
             <div *ngIf="isLogged" class="container-button">
-              <button class="btn btn-danger">
+              <button class="btn btn-danger" (click)="onEliminarExperiencia(i)">
                 <img
                   class="button-icon trash"
                   src="../../../assets/trash.svg"
@@ -48,9 +48,11 @@
             <em>{{ experiencia.empleador }}</em>
           </h4>
           <h5 class="card-subtitle mb-2 text-muted">
-            {{ experiencia.fechaIngreso }}-{{ experiencia.fechaFinal }}
+            {{experiencia.fechaIngreso }}-{{ experiencia.fechaFinal }}
           </h5>
-          <p class="card-text">{{ experiencia.descripcionE }}</p>
+          <p class="card-text">
+            {{experiencia.descripcionE}}
+          </p>
         </div>
       </div>
     </div>
@@ -72,90 +74,91 @@
         <h5 class="modal-title" id="experienciaFormLabel">
           Experiencia Laboral
         </h5>
-        
-        </div>
-        <div class="modal-body">
-          <!--FORM -->
-          <form [formGroup]="experienciaForm" (ngSubmit)="onSubmit()">
-            <input type="hidden" name="id" formControlName="id" />
+      </div>
+      <div class="modal-body">
+        <!--FORM -->
+        <form [formGroup]="experienciaForm" (ngSubmit)="onSubmit()">
+          <input type="hidden" name="id" formControlName="id" />
 
-            <div class="form-group">
-              <label for="tituloExp">Puesto</label>
-              <input
-                type="text"
-                formControlName="tituloExp"
-                name="tituloExp"
-                id="tituloExp"
-                class="form-control"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <label for="empleador">Empresa</label>
+          <div class="form-group">
+            <label for="tituloExp">Puesto</label>
+            <input
+              type="text"
+              formControlName="tituloExp"
+              name="tituloExp"
+              id="tituloExp"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="empleador">Empresa</label>
 
-              <input
-                type="text"
-                name="empleador"
-                id="empleador"
-                class="form-control"
-                formControlName="empleador"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <label for="fechaIngreso">Año de Ingreso</label>
-              <input
-                type="number"
-                min="1970"
-                max="2022"
-                name="fechaIngreso"
-                id="fechaIngreso"
-                class="form-control"
-                formControlName="fechaIngreso"
-                required
-              />
-            </div>
+            <input
+              type="text"
+              name="empleador"
+              id="empleador"
+              class="form-control"
+              formControlName="empleador"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="fechaIngreso">Año de Ingreso</label>
+            <input
+              type="number"
+              min="1970"
+              max="2022"
+              name="fechaIngreso"
+              id="fechaIngreso"
+              class="form-control"
+              formControlName="fechaIngreso"
+              required
+            />
+          </div>
 
-            <div class="form-group">
-              <label for="fechaFinal">Año de Finalización</label>
-              <input
-                type="number"
-                min="1970"
-                max="2022"
-                name="fechaFinal"
-                id="fechaFinal"
-                class="form-control"
-                formControlName="fechaFinal"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <label for="descripcionEd">Descripción</label>
-              <input
-                type="text"
-                name="descripcionE"
-                id="descripcionE"
-                class="form-control"
-                formControlName="descripcionE"
-                required
-              />
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-ligth" data-dismiss="modal">
-                Cerrar
-              </button>
-              <button
-                type="submit"
-                data-bs-toggle="modal"
-                id="btnGuardar"
-                class="btn btn-dark"
-              >
-                Guardar
-              </button>
-            </div>
-          </form>
-        </div>
-     
+          <div class="form-group">
+            <label for="fechaFinal">Año de Finalización</label>
+            <input
+              type="number"
+              min="1970"
+              max="2022"
+              name="fechaFinal"
+              id="fechaFinal"
+              class="form-control"
+              formControlName="fechaFinal"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="descripcionE">Descripción</label>
+            <input
+              type="text"
+              name="descripcionE"
+              id="descripcionE"
+              class="form-control"
+              formControlName="descripcionE"
+              required
+            />
+          </div>
+          <div class="modal-footer">
+            <button 
+            type="button" 
+            class="btn btn-ligth" 
+            data-dismiss="modal">
+              Cerrar
+            </button>
+            <button
+              type="submit"
+              data-bs-toggle="modal"
+              id="btnGuardar"
+              class="btn btn-dark"
+            >
+              Guardar
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>
