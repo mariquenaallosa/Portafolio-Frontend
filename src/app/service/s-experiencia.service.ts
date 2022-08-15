@@ -9,25 +9,26 @@ import { Experiencia } from '../model/experiencia';
 export class SExperienciaService {
   expURL = 'http://localhost:8080/explab/';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  public lista(): Observable<Experiencia[]>{
-    return this.httpClient.get<Experiencia[]>(this.expURL + 'lista');
+  public ObtenerDatosExperiencia(): Observable<Experiencia[]>{
+    console.log("El servicio portfolio experiencia esta corriendo");
+    return this.http.get<Experiencia[]>(this.expURL + 'lista');
   }
 
   public detail(id: number): Observable<Experiencia>{
-    return this.httpClient.get<Experiencia>(this.expURL + `detail/${id}`);
+    return this.http.get<Experiencia>(this.expURL + `detail/${id}`);
   } 
 
-  public save(experiencia: Experiencia): Observable<any>{
-    return this.httpClient.post<any>(this.expURL + 'create', experiencia);
+  public saveExperiencia(experiencia: Experiencia): Observable<any>{
+    return this.http.post<any>(this.expURL + 'create', experiencia);
   }
 
   public update(id: number, experiencia: Experiencia): Observable<any>{
-    return this.httpClient.put<any>(this.expURL + `update/${id}`, experiencia);
+    return this.http.put<any>(this.expURL + `update/${id}`, experiencia);
   }
 
   public delete(id: number): Observable<any>{
-    return this.httpClient.delete<any>(this.expURL + `delete/${id}`);
+    return this.http.delete<any>(this.expURL + `delete/${id}`);
   }
 }

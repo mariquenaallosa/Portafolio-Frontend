@@ -1,86 +1,89 @@
-<hr>
+<hr />
 <div class="row">
-  
   <div class="col-lg-12 container-exp">
     <h1 class="section">Experiencia laboral</h1>
-    <!-- routerLink="/nuevaexp" -->
     <button
       type="button"
       class="btn btn-dark nuevaexp redondo"
       data-toggle="modal"
-      data-target="#expModal"
+      data-target="#experienciaForm"
       *ngIf="isLogged"
+      (click)="onNewExp()"
     >
-    <img src="../../../assets/btnagregar.png" alt="boton para agregar">
+      <img src="../../../assets/btnagregar.png" alt="boton para agregar" />
     </button>
   </div>
-  <!--  -->
+  <!-- Experiencia -->
 
   <div class="col-lg-1"></div>
   <div class="container">
     <div class="row">
-      <div class="info-item card" *ngFor="let Experiencia of experiencia">
-        <h3 class="card-header">{{ Experiencia.tituloExp }}</h3>
+      <div
+        class="info-item card"
+        *ngFor="let experiencia of experienciaList; let i = index"
+      >
+        <h3 class="card-header">{{ experiencia.tituloExp }}</h3>
         <div class="card-body">
-            <div class="container-buttonIcon">
-                <div *ngIf="isLogged" class="container-button">
-                    <button
-                      class="btn btn-light"
-                    >
-                    <img class="button-icon edit" src="../../../assets/edit.svg">
-                    </button>
-                  </div>
-                  <div *ngIf="isLogged" class="container-button">
-                    <button class="btn btn-danger" (click)="delete(Experiencia.id)">
-                      <img class="button-icon trash" src="../../../assets/trash.svg">
-                    </button>
-                  </div>
+          <div class="container-buttonIcon">
+            <div *ngIf="isLogged" class="container-button">
+              <button
+                class="btn btn-light"
+                data-bs-toggle="modal"
+                data-bs-target="#experienciaForm"
+                (click)="onEditarExperiencia(i)"
+              >
+                <img class="button-icon edit" src="../../../assets/edit.svg" />
+              </button>
             </div>
+            <div *ngIf="isLogged" class="container-button">
+              <button class="btn btn-danger">
+                <img
+                  class="button-icon trash"
+                  src="../../../assets/trash.svg"
+                />
+              </button>
+            </div>
+          </div>
           <h4 class="card-title">
-            <em>{{Experiencia.empleador }}</em>
+            <em>{{ experiencia.empleador }}</em>
           </h4>
           <h5 class="card-subtitle mb-2 text-muted">
-            {{ Experiencia.fechaIngreso }}-{{ Experiencia.fechaFinal }}
+            {{ experiencia.fechaIngreso }}-{{ experiencia.fechaFinal }}
           </h5>
-          <p class="card-text">{{ Experiencia.descripcionE }}</p>
-         
+          <p class="card-text">{{ experiencia.descripcionE }}</p>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-  <!-- MODAL -->
+<!-- MODAL FORM - EXPERIENCIA creacion/edicion -->
 
-  <div
-    class="modal fade"
-    id="expModal"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="expModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3 class="modal-title" id="expModalLabel">Experiencia Laboral</h3>
-          <button
-            type="button"
-            class="close"
-            data-dismiss="modal"
-            aria-label="Close"
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
+<div
+  class="modal fade"
+  id="experienciaForm"
+  tabindex="-1"
+  aria-labelledby="experienciaFormLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="experienciaFormLabel">
+          Experiencia Laboral
+        </h5>
+        
         </div>
         <div class="modal-body">
-          <!--form -->
-          <form  (ngSubmit)="onCreate()" novalidate #f="ngForm">
+          <!--FORM -->
+          <form [formGroup]="experienciaForm" (ngSubmit)="onSubmit()">
+            <input type="hidden" name="id" formControlName="id" />
+
             <div class="form-group">
-              <label for="tituloExp">Cargo</label>
+              <label for="tituloExp">Puesto</label>
               <input
                 type="text"
-                [(ngModel)]="tituloExp"
+                formControlName="tituloExp"
                 name="tituloExp"
                 id="tituloExp"
                 class="form-control"
@@ -91,71 +94,68 @@
               <label for="empleador">Empresa</label>
 
               <input
-                        type="text"
-                        name="empleador"
-                        id="empleador"
-                        class="form-control"
-                        [(ngModel)]="empleador"
-                        required
-                      />
-                    </div>
-                    <div class="form-group">
-                      <label for="fechaIngreso">Año de Ingreso</label>
-                      <input
-                        type="number"
-                        min="1970"
-                        max="2022"
-                        name="fechaIngreso"
-                        id="fechaIngreso"
-                        class="form-control"
-                        [(ngModel)]="fechaIngreso"
-                        required
-                      />
-                    </div>
+                type="text"
+                name="empleador"
+                id="empleador"
+                class="form-control"
+                formControlName="empleador"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="fechaIngreso">Año de Ingreso</label>
+              <input
+                type="number"
+                min="1970"
+                max="2022"
+                name="fechaIngreso"
+                id="fechaIngreso"
+                class="form-control"
+                formControlName="fechaIngreso"
+                required
+              />
+            </div>
 
-                    <div class="form-group">
-                      <label for="fechaFinal">Año de Finalización</label>
-                      <input
-                        type="number"
-                        min="1970"
-                        max="2022"
-                        name="fechaFinal"
-                        id="fechaFinal"
-                        class="form-control"
-                        [(ngModel)]="fechaFinal"
-                        required
-                      />
-                    </div>
-                    <div class="form-group">
-                      <label for="descripcionEd">Descripción</label>
-                      <input
-                        type="text"
-                        name="descripcionE"
-                        id="descripcionE"
-                        class="form-control"
-                        [(ngModel)]="descripcionE"
-                        required
-                      />
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-ligth" data-dismiss="modal">
-                        Cerrar
-                      </button>
-                      <button
-                        type="submit"
-                        id="btnGuardar"
-                        class="btn btn-dark"
-                      >
-                        Agregar Experiencia
-                      </button>
-                      
-                      
-                     </div>
-                  </form>
-           
-
+            <div class="form-group">
+              <label for="fechaFinal">Año de Finalización</label>
+              <input
+                type="number"
+                min="1970"
+                max="2022"
+                name="fechaFinal"
+                id="fechaFinal"
+                class="form-control"
+                formControlName="fechaFinal"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="descripcionEd">Descripción</label>
+              <input
+                type="text"
+                name="descripcionE"
+                id="descripcionE"
+                class="form-control"
+                formControlName="descripcionE"
+                required
+              />
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-ligth" data-dismiss="modal">
+                Cerrar
+              </button>
+              <button
+                type="submit"
+                data-bs-toggle="modal"
+                id="btnGuardar"
+                class="btn btn-dark"
+              >
+                Guardar
+              </button>
+            </div>
+          </form>
         </div>
-      </div>
+     
     </div>
   </div>
-
+</div>
