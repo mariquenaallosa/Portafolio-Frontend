@@ -9,15 +9,15 @@
       data-toggle="modal"
       data-target="#experienciaForm"
       *ngIf="isLogged"
-      (click)="onNewExp()"
+      (click)="onNew()"
     >
       <img src="../../../assets/btnagregar.png" alt="boton para agregar" />
     </button>
   </div>
   <!-- Experiencia -->
 
-  
-  <div class="container">
+  <div class="col-lg-1"></div>
+  <div class="container col-10">
     <div class="row">
       <div
         class="info-item card"
@@ -31,13 +31,13 @@
                 class="btn btn-light"
                 data-bs-toggle="modal"
                 data-bs-target="#experienciaForm"
-                (click)="onEditarExperiencia(i)"
+                (click)="onEdit(i)"
               >
                 <img class="button-icon edit" src="../../../assets/edit.svg" />
               </button>
             </div>
             <div *ngIf="isLogged" class="container-button">
-              <button class="btn btn-danger" (click)="onEliminarExperiencia(i)">
+              <button class="btn btn-danger" (click)="onDelete(i)">
                 <img
                   class="button-icon trash"
                   src="../../../assets/trash.svg"

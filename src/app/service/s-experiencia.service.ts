@@ -12,7 +12,7 @@ export class SExperienciaService {
 
   constructor(private http: HttpClient) { }
   
-obtenerDatosExperiencia(): Observable<Experiencia[]>{
+get(): Observable<Experiencia[]>{
     console.log("El servicio portfolio experiencia esta corriendo");
     return this.http.get<Experiencia[]>(this.expURL + 'lista');
   }
@@ -21,16 +21,16 @@ detail(id: number): Observable<Experiencia>{
     return this.http.get<Experiencia>(this.expURL + `detail/${id}`);
   } 
 
-crearDatosExperiencia(experiencia: Experiencia): Observable<any>{
+save(experiencia: Experiencia): Observable<any>{
     return this.http.post<any>(this.expURL + `create`, experiencia);
   }
 
-editarDatosExperiencia(experiencia: Experiencia):Observable<any>{ 
+edit(experiencia: Experiencia):Observable<any>{ 
      return this.http.put<any>(this.expURL+`update`, experiencia);
   } 
 
 
-eliminarDatosExperiencia(id: number):Observable<Experiencia>{    
+delete(id: number):Observable<Experiencia>{    
     return this.http.delete<any>(this.expURL+`delete/${id}`);
   }
 }

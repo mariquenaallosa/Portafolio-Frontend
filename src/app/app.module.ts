@@ -23,8 +23,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { interceptorProvider } from './service/interceptor-service';
 import {MatIconModule} from '@angular/material/icon';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HardSkillsComponent } from './components/skills/hard-skills.component';
-import { SoftSkillsComponent } from './components/skills/soft-skills.component';
 
 
 
@@ -45,8 +43,6 @@ import { SoftSkillsComponent } from './components/skills/soft-skills.component';
     FooterComponent,
     HomeComponent,
     LoginComponent,
-    HardSkillsComponent,
-    SoftSkillsComponent
   ],
   imports: [
     BrowserModule,

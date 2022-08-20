@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import {Persona} from 'interfaces';
 import { AcercaDeComponent } from './acerca-de.component';
 
 describe('AcercaDeComponent', () => {

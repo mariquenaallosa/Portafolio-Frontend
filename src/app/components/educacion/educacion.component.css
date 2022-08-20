@@ -5,15 +5,22 @@ div {
     background-color: #ffffff;
     color: rgb(0, 0, 0);
 }
+h2{
+    font-size:1.5rem;
+    font-weight:400;
+}
 h3, h4 {
     display:inline;
 }
 .container-ed{
     display:flex;
+    align-items: center;
     justify-content: space-between;
 }
+
 .redondo{
     display: block;
+    margin-top:-25px;
     padding:3px;
     width: 40px;
     height: 40px;
@@ -47,6 +54,15 @@ button img{
     height: 0.8rem;
     text-align: center;
 }
+.containerbody{
+    display: flex;
+    flex-direction: column;
+}
+
+.imgcard {
+    width: 100%;
+} 
+
 
 img.button-icon.edit{
     width:0.9rem;

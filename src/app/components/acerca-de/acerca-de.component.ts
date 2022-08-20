@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { persona } from 'src/app/model/persona.model';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Persona } from 'src/app/model/persona';
 import { PersonaService } from 'src/app/service/persona.service';
 import { TokenService } from 'src/app/service/token.service';
 
@@ -9,17 +10,30 @@ import { TokenService } from 'src/app/service/token.service';
   styleUrls: ['./acerca-de.component.css']
 })
 export class AcercaDeComponent implements OnInit {
-  persona: persona = new persona("","","","","","","","");
+  persona: Persona  = new Persona("","","","","");
 
   isLogged = false;
 
-  constructor(public personaService: PersonaService,private tokenService: TokenService) {  }
+  personaForm : FormGroup;
+  constructor(
+    private personaService: PersonaService,
+    private tokenService: TokenService,
+    private fb:FormBuilder) { 
+      this.personaForm = this.fb.group({
+        nombre:['',[Validators.required]],
+        apellido: ['', [Validators.required]],
+        titulo: ['', [Validators.required]],
+        about: ['', [Validators.required]],
+        photoUrl: ['', [Validators.required]]
+
+      });
+     }
 
 
    
 
     ngOnInit(): void {
-      this.cargarPersona();
+      this.reloadData();
       if(this.tokenService.getToken()){
         this.isLogged = true;
       }else{
@@ -27,9 +41,55 @@ export class AcercaDeComponent implements OnInit {
       }
     }
 
-    
+    private clearForm() {
+      this.personaForm.setValue({
+        nombre:'',
+        apellido:'',
+        titulo:'',
+        about:'',
+        photoUrl:''
+      });
+    }
 
-    cargarPersona() {
+
+    private reloadData() {
       this.personaService.getPersona().subscribe(data => {this.persona = data});
     }
+
+    private loadForm(persona:Persona) {
+      this.personaForm.setValue({
+        nombre: persona.nombre,
+        apellido: persona.apellido,
+        titulo: persona.titulo,
+        about: persona.about,
+        photoUrl: persona.photoUrl
+      });
+    }
+
+
+    onSubmit() {
+      console.log(this.personaForm.value);
+     let persona: Persona = this.personaForm.value;
+     if (this.personaForm.get('id')?.value == '') {
+       this.personaService.save(persona)
+         this.reloadData();
+         window.location.reload();
+     } else {
+       this.personaService.save(persona).subscribe(
+         (data) => {
+           this.reloadData();
+         },
+         (err) => {
+           alert('Falló');
+         }
+       );
+     }
+   } 
+    
+    onEditar() {
+      let persona: Persona = this.persona;
+      this.loadForm(persona);
+    }
+   
+    
 }

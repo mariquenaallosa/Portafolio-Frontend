@@ -1,3 +1,4 @@
+
 export interface Experiencia {
     id: number;
     tituloExp: string;
@@ -13,7 +14,8 @@ export interface Educacion {
     institucion: string;
     fechaIngreso: number;
     fechaFinal: number;
-    descripcionEd:String;
+    descripcionEd:String
+    imgUrl: string;
 }
 
 export interface Skills{
@@ -21,4 +23,13 @@ export interface Skills{
     skillsLevel:number;
     nombreSkill: string;
     imgSkill: string
+}
+
+export interface Proyecto {
+    id: number;
+    titulo:string;
+    descripcion:string;
+    imgUrl:string;
+    repoUrl:string;
+    demoUrl: string;
 }

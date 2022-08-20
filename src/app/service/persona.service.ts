@@ -2,7 +2,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { persona } from '../model/persona.model';
+import { Persona } from 'src/app/model/persona';
 
 
 @Injectable({
@@ -15,11 +15,14 @@ export class PersonaService {
 
   constructor(private http: HttpClient) {}
 
-  public getPersona(): Observable<persona>{
-    return this.http.get<persona> (this.URL + 'traer/perfil');
+  public getPersona(): Observable<Persona>{
+    return this.http.get<Persona> (this.URL + 'traer/perfil');
   }
-  public save(persona: persona): Observable<any>{
-    return this.http.post<persona>(this.URL + 'create', persona);
+  public save(persona: Persona): Observable<any>{
+    return this.http.post<Persona>(this.URL + 'create', persona);
+  }
+  public editar(persona: Persona): Observable<any>{
+    return this.http.put<any>(this.URL + 'update', persona);
   }
 }
 

@@ -27,7 +27,7 @@ export class EducacionComponent implements OnInit {
       institucion: ['', [Validators.required]],
       fechaIngreso: ['', [Validators.required]],
       fechaFinal: ['', [Validators.required]],
-      descripcionEd: ['', [Validators.required]],
+      descripcionEd: ['', [Validators.required]]
     });
   }
 
@@ -41,7 +41,7 @@ ngOnInit(): void {
   }
 
   private reloadData() {
-    this.educacionS.obtenerDatosEducacion().subscribe((data) => {
+    this.educacionS.get().subscribe((data) => {
       this.educacionList = data;
     });
   }
@@ -64,7 +64,7 @@ ngOnInit(): void {
       institucion: educacion.institucion,
       fechaIngreso: educacion.fechaIngreso,
       fechaFinal: educacion.fechaFinal,
-      descripcionEd: educacion.descripcionEd,
+      descripcionEd: educacion.descripcionEd
     });
   }
 
@@ -72,14 +72,14 @@ ngOnInit(): void {
     console.log(this.educacionForm.value);
    let educacion: Educacion = this.educacionForm.value;
    if (this.educacionForm.get('id')?.value == '') {
-     this.educacionS.crearDatosEducacion(educacion).subscribe(
+     this.educacionS.save(educacion).subscribe(
       (nuevaeducacion: Educacion) => {
          this.educacionList.push(nuevaeducacion);
          this.reloadData();
-         window.location.reload();
+         this.onNew();
        });
    } else {
-     this.educacionS.crearDatosEducacion(educacion).subscribe(
+     this.educacionS.save(educacion).subscribe(
        (data) => {
          this.reloadData();
        },
@@ -90,18 +90,18 @@ ngOnInit(): void {
    }
  }
 
-  onNewEd() {
+  onNew() {
     this.clearForm();
   }
 
-  onEditarEducacion(index: number) {
+  onEdit(index: number) {
     let educacion: Educacion = this.educacionList[index];
     this.loadForm(educacion);
   }
-  onEliminarEducacion(index: number) {
+  onDelete(index: number) {
     let educacion: Educacion = this.educacionList[index];
     if (confirm('¿Está seguro que desea borrar la educación?')) {
-      this.educacionS.eliminarDatosEducacion(educacion.id).subscribe(() => {
+      this.educacionS.delete(educacion.id).subscribe(() => {
         this.reloadData();
       });
     }

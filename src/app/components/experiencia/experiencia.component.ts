@@ -47,7 +47,7 @@ export class ExperienciaComponent implements OnInit {
   }
 
   reloadData() {
-    this.sExperiencia.obtenerDatosExperiencia().subscribe((data) => {
+    this.sExperiencia.get().subscribe((data) => {
       this.experienciaList = data;
     });
   }
@@ -80,14 +80,14 @@ export class ExperienciaComponent implements OnInit {
     let experiencia: Experiencia = this.experienciaForm.value;
     if (this.experienciaForm.get('id')?.value == '') {
       this.sExperiencia
-        .crearDatosExperiencia(experiencia)
+        .save(experiencia)
         .subscribe((nuevaexperiencia: Experiencia) => {
           this.experienciaList.push(nuevaexperiencia);
           this.reloadData();
-          window.location.reload();
+          this.onNew;
         });
     } else {
-      this.sExperiencia.crearDatosExperiencia(experiencia).subscribe(
+      this.sExperiencia.save(experiencia).subscribe(
         (data) => {
           this.reloadData();
         },
@@ -98,12 +98,12 @@ export class ExperienciaComponent implements OnInit {
     }
   }
 
-  onNewExp() {
+  onNew() {
     this.clearForm();
   }
 
   
-onEditarExperiencia(index: number){
+onEdit(index: number){
     let experiencia: Experiencia = this.experienciaList[index];
     this.loadForm(experiencia);   
    
@@ -111,10 +111,10 @@ onEditarExperiencia(index: number){
        
   
   
-  onEliminarExperiencia(index: number){
+  onDelete(index: number){
     let experiencia: Experiencia = this.experienciaList[index];
     if(confirm("¿Está seguro que desea borrar la experiencia?")){
-      this.sExperiencia.eliminarDatosExperiencia(experiencia.id).subscribe(()=>{
+      this.sExperiencia.delete(experiencia.id).subscribe(()=>{
         this.reloadData();
       });}
     }

@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-lg-12 container-ed">
-    <h1>Educación</h1>
+    <h2>Educación</h2>
     <!-- Botón para agregar nueva educación -->
     <button
       type="button"
@@ -8,7 +8,7 @@
       data-toggle="modal"
       data-target="#educacionForm"
       *ngIf="isLogged"
-      (click)="onNewEd()"
+      (click)="onNew()"
     >
       <img src="../../../assets/btnagregar.png" alt="boton para agregar" />
     </button>
@@ -29,12 +29,12 @@
               <button class="btn btn-light" 
                 data-bs-toggle="modal"
                 data-bs-target="#educacionForm"
-                (click)="onEditarEducacion(i)">
+                (click)="onEdit(i)">
                 <img class="button-icon edit" src="../../../assets/edit.svg" />
               </button>
             </div>
             <div *ngIf="isLogged" class="container-button">
-              <button class="btn btn-danger" (click)="onEliminarEducacion(i)">
+              <button class="btn btn-danger" (click)="onDelete(i)">
                 <img
                   class="button-icon trash"
                   src="../../../assets/trash.svg"
@@ -42,13 +42,13 @@
               </button>
             </div>
           </div>
-          <h4 class="card-title">
-            <em>{{ educacion.institucion }}</em>
-          </h4>
-          <h5 class="card-subtitle mb-2 text-muted">
-            {{ educacion.fechaIngreso }}-{{ educacion.fechaFinal }}
-          </h5>
-          <p class="card-text">{{educacion.descripcionEd}}</p>
+              <h4 class="card-title">
+                <em>{{ educacion.institucion }}</em>
+              </h4>
+              <h5 class="card-subtitle mb-2 text-muted">
+                {{ educacion.fechaIngreso }}-{{ educacion.fechaFinal }}
+              </h5>
+              <p class="card-text">{{educacion.descripcionEd}}</p>
         </div>
       </div>
     </div>
@@ -133,6 +133,17 @@
             id="descripcionEd"
             class="form-control"
             formControlName="descripcionEd"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="imgUrl">Logo Institución</label>
+          <input
+            type="text"
+            name="imgUrl"
+            id="imgUrl"
+            class="form-control"
+            formControlName="imgUrl"
             required
           />
         </div>

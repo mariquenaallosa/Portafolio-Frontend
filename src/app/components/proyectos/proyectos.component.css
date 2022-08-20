@@ -1,21 +1,89 @@
 .row {
     padding:30px;
 }
-.container{
-    width:auto;
+.section{
+    font-size:1.5rem;
+    font-weight:400;
 }
-.descripcion1, .img1 {
-    display: inline-block;
-    text-align: justify;
-    margin-left: 40px;
+.container-proyectos{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+li{
+    list-style: none;
+}
+ul{
+    padding-block: 10px;
+}
+.img-proyect{
+    box-shadow: 1px 2px 3px 1px  #999;
+    border-radius:  5px;
+    -webkit-border-radius:  5px;
+    -moz-border-radius:  5px;
+    -ms-border-radius:  5px;
+    -o-border-radius:  5px;
+}
+.redondo{
+    display: block;
+    margin-top:-25px;
+    padding:3px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    align-self: center;
+    background-color: #3e5f68;
+}
+.redondo:hover{
+    background-color: #141b1d;
+}
+button img{
+    width:100%
+}
+div {
+    background-color: #fff;
+    color: rgb(0, 0, 0);
+}
+h3{
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+p{
+    font-size: 0.9rem;
 }
 
-.imgp1 {
-    box-shadow: 8px 8px 30px  rgba(95, 95, 95, 0.89);
-    border: 5px solid #3e5f68;
-    border-radius:5px;
-    -webkit-border-radius:5px;
-    -moz-border-radius:5px;
-    -ms-border-radius:5px;
-    -o-border-radius:5px;
+
+.modal{
+    background-color: transparent;
+}
+.form-group{
+    margin:10px;
+}
+label{
+    margin:5px;
+}
+button img{
+    width:100%
+}
+
+.continer-button{
+    width:0.8rem;
+    height: 0.8rem;
+    text-align: center;
+}
+img.button-icon.edit{
+    width:0.9rem;
+}
+img.button-icon.trash{
+    filter:invert(100%);
+    -webkit-filter:invert(100%);
+    width: 0.68rem;
+}
+.container-buttonIcon{
+    display:flex;
+    justify-content: end;
+    align-items:flex-start;
+    margin-top: -25px;
+    margin-left: -15px;
 }
