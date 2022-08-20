@@ -10,8 +10,8 @@ import { TokenService } from 'src/app/service/token.service';
   styleUrls: ['./acerca-de.component.css']
 })
 export class AcercaDeComponent implements OnInit {
-  persona: Persona = new Persona("","","","","");
-
+  // persona: Persona = new Persona("","","","","");
+  persona : Persona [] = [];
   isLogged = false;
 
   personaForm : FormGroup;
@@ -86,7 +86,7 @@ export class AcercaDeComponent implements OnInit {
    } 
     
     onEdit() {
-      let persona : Persona = this.persona;
+      let persona : Persona = this.persona[0];
       this.loadForm(persona); 
     }
    

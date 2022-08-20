@@ -10,7 +10,7 @@ export class SkillsService {
   URL= 'http://localhost:8080/skills/';
   constructor(private http: HttpClient) { }
     public get(): Observable<Skills[]>{
-      console.log("El servicio portfolio educacion esta corriendo");
+      console.log("El servicio portfolio skills esta corriendo");
       return this.http.get<Skills[]>(this.URL + 'lista');
     }
   

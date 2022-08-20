@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-xs-11 containerfoto">
     <img
-      src="../../../assets/{{ persona.photoUrl }}"
+     src="../../../assets/{{persona[0].photoUrl}}"
       alt="Foto de perfil"
       class="img-fluid fotodeperfil"
     />
@@ -115,14 +115,14 @@
   <div
     class="col-xs-12 col-sm-3 col-md-3 col-lg-3 containerinfo datospersonales"
   >
-    <p class="nombre">{{ persona.nombre }} {{ persona.apellido }}</p>
-    <p>{{ persona.titulo }}</p>
+    <p class="nombre">{{ persona[0].nombre }} {{ persona[0].apellido }}</p>
+    <p>{{ persona[0].titulo }}</p>
   </div>
   <div class="acercademi col-xs-12 col-sm-8 col-md-8 col-lg-8">
     <!-- <span> -->
     <h1>Acerca de mí</h1>
     <p>
-      {{ persona.about }}
+      {{ persona[0].about }}
     </p>
     <!-- </span> -->
   </div>
