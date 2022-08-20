@@ -10,7 +10,7 @@ import { TokenService } from 'src/app/service/token.service';
   styleUrls: ['./acerca-de.component.css']
 })
 export class AcercaDeComponent implements OnInit {
-  persona: Persona  = new Persona("","","","","");
+  persona: Persona = new Persona("","","","","");
 
   isLogged = false;
 
@@ -53,7 +53,7 @@ export class AcercaDeComponent implements OnInit {
 
 
     private reloadData() {
-      this.personaService.getPersona().subscribe(data => {this.persona = data});
+      this.personaService.get().subscribe(data => {this.persona = data});
     }
 
     private loadForm(persona:Persona) {
@@ -73,7 +73,6 @@ export class AcercaDeComponent implements OnInit {
      if (this.personaForm.get('id')?.value == '') {
        this.personaService.save(persona)
          this.reloadData();
-         window.location.reload();
      } else {
        this.personaService.save(persona).subscribe(
          (data) => {
@@ -86,9 +85,9 @@ export class AcercaDeComponent implements OnInit {
      }
    } 
     
-    onEditar() {
-      let persona: Persona = this.persona;
-      this.loadForm(persona);
+    onEdit() {
+      let persona : Persona = this.persona;
+      this.loadForm(persona); 
     }
    
     

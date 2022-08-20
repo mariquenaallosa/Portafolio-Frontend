@@ -15,13 +15,13 @@ export class PersonaService {
 
   constructor(private http: HttpClient) {}
 
-  public getPersona(): Observable<Persona>{
+  public get(): Observable<Persona>{
     return this.http.get<Persona> (this.URL + 'traer/perfil');
   }
   public save(persona: Persona): Observable<any>{
     return this.http.post<Persona>(this.URL + 'create', persona);
   }
-  public editar(persona: Persona): Observable<any>{
+  public update(persona: Persona): Observable<any>{
     return this.http.put<any>(this.URL + 'update', persona);
   }
 }

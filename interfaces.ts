@@ -15,7 +15,6 @@ export interface Educacion {
     fechaIngreso: number;
     fechaFinal: number;
     descripcionEd:String
-    imgUrl: string;
 }
 
 export interface Skills{
