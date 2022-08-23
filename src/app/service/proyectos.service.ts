@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProyectosService {
-  URL= 'http://localhost:8080/proyectos/';
+  URL= 'https://backendmariquena.herokuapp.com/proyectos/';
   constructor(private http: HttpClient) { }
     get(): Observable<Proyecto[]>{
     console.log("El servicio portfolio proyectos esta corriendo");

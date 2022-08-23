@@ -7,7 +7,7 @@ import { Educacion } from 'interfaces';
   providedIn: 'root'
 })
 export class EducacionService {
-  URL= 'http://localhost:8080/educacion/';
+  URL= 'https://backendmariquena.herokuapp.com/educacion/';
   constructor(private http: HttpClient) { }
     public get(): Observable<Educacion[]>{
       console.log("El servicio portfolio educacion esta corriendo");

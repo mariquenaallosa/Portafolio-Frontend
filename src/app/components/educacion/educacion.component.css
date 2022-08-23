@@ -103,7 +103,7 @@ img.button-icon.trash{
 }
 .container-buttonIcon{
     display:flex;
-    justify-content: end;
+    justify-content: flex-end;
     align-items:flex-end;
     margin-top: -25px;
     margin-left: -15px;

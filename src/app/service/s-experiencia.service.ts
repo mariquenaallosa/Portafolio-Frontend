@@ -8,7 +8,7 @@ import { EducacionComponent } from '../components/educacion/educacion.component'
   providedIn: 'root'
 })
 export class SExperienciaService {
-  expURL = 'http://localhost:8080/explab/';
+  expURL = 'https://backendmariquena.herokuapp.com/explab/';
 
   constructor(private http: HttpClient) { }
   

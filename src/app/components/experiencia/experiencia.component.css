@@ -1,7 +1,6 @@
 .row {
     padding:30px;
 }
-
 hr{
     color: #3e5f68;
     padding: 2px;
@@ -46,7 +45,6 @@ h3, h4 {
 .modal-dialog{
     background-color:#3e5f68;
 }
-
 .modal-header{
 	padding:6px 10px 2px 6px;
 	background-color:#3e5f68;
@@ -104,7 +102,7 @@ img.button-icon.trash{
 }
 .container-buttonIcon{
     display:flex;
-    justify-content: end;
+    justify-content: flex-end;
     align-items:flex-end;
     margin-top: -25px;
     margin-left: -15px;
