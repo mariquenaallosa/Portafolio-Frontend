@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Persona } from 'src/app/model/persona';
+import { Persona } from 'interfaces';
 import { PersonaService } from 'src/app/service/persona.service';
 import { TokenService } from 'src/app/service/token.service';
 
@@ -20,6 +20,7 @@ export class AcercaDeComponent implements OnInit {
     private tokenService: TokenService,
     private fb:FormBuilder) { 
       this.personaForm = this.fb.group({
+        id:['', [Validators.required]],
         nombre:['',[Validators.required]],
         apellido: ['', [Validators.required]],
         titulo: ['', [Validators.required]],
@@ -41,16 +42,6 @@ export class AcercaDeComponent implements OnInit {
       }
     }
 
-    private clearForm() {
-      this.personaForm.setValue({
-        nombre:'',
-        apellido:'',
-        titulo:'',
-        about:'',
-        photoUrl:''
-      });
-    }
-
 
     private reloadData() {
       this.personaService.get().subscribe(data => {this.persona = data});
@@ -58,6 +49,7 @@ export class AcercaDeComponent implements OnInit {
 
     private loadForm(persona:Persona) {
       this.personaForm.setValue({
+        id:persona.id,
         nombre: persona.nombre,
         apellido: persona.apellido,
         titulo: persona.titulo,
@@ -71,23 +63,26 @@ export class AcercaDeComponent implements OnInit {
       console.log(this.personaForm.value);
      let persona: Persona = this.personaForm.value;
      if (this.personaForm.get('id')?.value == '') {
-       this.personaService.save(persona)
-         this.reloadData();
+       this.personaService.save(persona).subscribe(
+        (nuevapersona: Persona) => {
+           this.persona.push(nuevapersona);
+           this.reloadData();
+         });
+  
      } else {
        this.personaService.save(persona).subscribe(
          (data) => {
            this.reloadData();
-         },
-         (err) => {
-           alert('Falló');
          }
+        
        );
+       window.location.reload();
      }
    } 
     
-    onEdit() {
-      let persona : Persona = this.persona[0];
-      this.loadForm(persona); 
+    onEdit(index:number) {
+      let persona : Persona = this.persona[index];
+      this.loadForm(persona);
     }
    
     

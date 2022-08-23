@@ -12,7 +12,7 @@
       class="col-xs-1 btn btn-ligth edit"
       data-bs-toggle="modal"
       data-bs-target="#personaForm"
-      (click)="onEdit()"
+      (click)="onEdit(0)"
     >
       <img src="../../../assets/edit.svg" />
     </button>
@@ -29,7 +29,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h3 class="modal-title" id="personaFormLabel">Datos Personales</h3>
+          <h4 class="modal-title" id="personaFormLabel">Datos Personales</h4>
           <button
             type="button"
             class="btn-close"
@@ -47,6 +47,7 @@
                 id="nombre"
                 class="form-control"
                 formControlName="nombre"
+                placeholder="Nombre"
                 required
               />
             </div>
@@ -58,6 +59,7 @@
                 id="apellido"
                 class="form-control"
                 formControlName="apellido"
+                placeholder="Apellido"
                 required
               />
             </div>
@@ -69,6 +71,7 @@
                 id="titulo"
                 class="form-control"
                 formControlName="titulo"
+                placeholder="Titulo"
                 required
               />
             </div>
@@ -81,6 +84,7 @@
                 id="about"
                 class="form-control"
                 formControlName="about"
+                placeholder="Acerca de mi"
                 required
               />
             </div>
@@ -92,6 +96,7 @@
                 id="photoUrl"
                 class="form-control"
                 formControlName="photoUrl"
+                placeholder="photoProfile.jpg"
                 required
               />
             </div>
@@ -103,7 +108,11 @@
               >
                 Cerrar
               </button>
-              <button type="submit" id="btnGuardar" class="btn btn-dark">Guardar</button>
+              <button 
+              type="submit" 
+              id="btnGuardar" 
+              class="btn btn-dark"
+              >Guardar</button>
             </div>
           </form>
         </div>

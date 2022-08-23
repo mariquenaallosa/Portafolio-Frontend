@@ -1,5 +1,6 @@
 .row{
    background-color:#3e5f68;
+   overflow-x: hidden;
 }
 footer {
     padding-top:20px;

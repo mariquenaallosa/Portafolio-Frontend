@@ -15,7 +15,7 @@
     </div>
     
     <div class="skills-container" >
-      <div class="circle-container" *ngFor="let skills of skillsList; let i = index">
+      <div class="circle-container" *ngFor="let skills of skillsList; let i = index" cdkDrag>
         <div class="container-circleimg">
           <circle-progress
           [percent]="skills.skillsLevel"
@@ -73,9 +73,9 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="skillFormLabel">
+        <h4 class="modal-title" id="skillFormLabel">
           Hard Skills
-        </h5>
+        </h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -115,7 +115,7 @@
           <div class="modal-footer">
             <button 
             type="button" 
-            class="btn btn-ligth" 
+            class="btn btn-ligth btn-cerrar" 
             data-dismiss="modal">
               Cerrar
             </button>
@@ -133,4 +133,4 @@
     </div>
   </div>
   </div>
-  
+</div>

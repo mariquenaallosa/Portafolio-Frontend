@@ -1,5 +1,4 @@
-<div class="container">
-  <div class="row">
+<div class="row">
     <div class="col-lg-12 container-proyectos">
       <h2 class="section">Proyectos</h2>
       <!-- agregar nuevo proyecto -->
@@ -53,7 +52,7 @@
     </div>
 <!-- Modal proyectoForm-->
 <div
-  class="modal fade"
+  class="modal fade "
   id="proyectoForm"
   tabindex="-1"
   aria-labelledby="proyectoFormLabel"
@@ -78,7 +77,8 @@
             formControlName="titulo"
             name="titulo"
             id="titulo"
-            class="form-control"
+            class="form-control modal-input"
+            placeholder = "Nombre del proyecto"
             required
           />
         </div>
@@ -89,8 +89,9 @@
             type="text"
             name="descripcion"
             id="descripcion"
-            class="form-control"
+            class="form-control modal-input"
             formControlName="descripcion"
+            placeholder = "Descripción del proyecto"
             required
           />
         </div>
@@ -100,8 +101,9 @@
             type="text"
             name="imgUrl"
             id="imgUrl"
-            class="form-control"
+            class="form-control modal-input"
             formControlName="imgUrl"
+            placeholder = "URL de la imagen"
             required
           />
         </div>
@@ -111,8 +113,9 @@
             type="text"
             name="repoUrl"
             id="repoUrl"
-            class="form-control"
+            class="form-control modal-input"
             formControlName="repoUrl"
+            placeholder = "URL del repositorio"
             required
           />
         </div>

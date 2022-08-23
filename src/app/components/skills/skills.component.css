@@ -1,5 +1,6 @@
 .row {
     padding:30px;
+    overflow-x: hidden;
 }
 div {
     background-color: #3e5f68;
@@ -12,6 +13,7 @@ h3, h4 {
     display:flex;
     justify-content: space-between;
 }
+
 button img{
     width:100%
 }
@@ -35,7 +37,39 @@ h2{
 }
 .modal{
     background-color: transparent;
-    
+   
+}
+.modal-dialog{
+    background-color:#3e5f68;
+}
+
+.modal-header{
+	padding:6px 10px 2px 6px;
+	background-color:#fff;
+	border:0px;
+	height:50px;
+}
+.modal-header h4{
+    font-size: 1rem;
+    padding-top:10px;
+    padding-left: 30px;
+    color: #25393e;
+}
+.modal-body{
+    padding:30px 40px 20px 40px;
+ 
+
+}
+.modal-input{
+	background-color:#fff;
+	border:1px solid #3e5f68
+}
+.modal-footer{
+	border-top:none;
+	padding:20px 15px 10px 15px;
+}
+.btn-cerrar{
+    color:#fff
 }
 .form-group{
     margin:10px;
@@ -113,10 +147,12 @@ img.button-icon.trash{
 
 .skills-container{
     display:grid;
+    width: 95%;
     grid-template-columns: repeat(auto-fill,minmax(150px,1fr));
     grid-gap:10px;
     padding:10px;
     margin:20px 10px;
+    margin-left: 20px;
 }
 
 .circle-container{
@@ -124,7 +160,13 @@ img.button-icon.trash{
     align-items: center;
     text-align: center;
 }
-
+.circle-container:hover{
+    transform: translate(5px,5px);
+    -webkit-transform: translate(5px,5px);
+    -moz-transform: translate(5px,5px);
+    -ms-transform: translate(5px,5px);
+    -o-transform: translate(5px,5px);
+}
 circle-progress:hover{
     filter: drop-shadow(3px 3px 2px rgb(53, 53, 53));
     -webkit-filter: drop-shadow(3px 3px 2px rgb(53, 53, 53));
