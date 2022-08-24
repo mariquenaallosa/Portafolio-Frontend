@@ -1,2 +1,2 @@
-# Proyecto Integrador Portfolio Web Full Stack
-# YoProgramo
+# APLogo.png Proyecto Integrador Portfolio Web Full Stack - #YoProgramo
+
