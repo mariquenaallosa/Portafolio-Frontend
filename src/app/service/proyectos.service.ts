@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProyectosService {
-  URL= 'portfolio-mariquenaallosa.koyeb.app/proyectos/';
+  URL= 'https://portfolio-mariquenaallosa.koyeb.app/proyectos/';
   constructor(private http: HttpClient) { }
     get(): Observable<Proyecto[]>{
     console.log("El servicio portfolio proyectos esta corriendo");

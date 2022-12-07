@@ -10,7 +10,7 @@ import { Persona } from 'interfaces';
 })
 
 export class PersonaService {
-  URL ='portfolio-mariquenaallosa.koyeb.app/personas/';
+  URL ='https://portfolio-mariquenaallosa.koyeb.app/personas/';
 
 
   constructor(private http: HttpClient) {}

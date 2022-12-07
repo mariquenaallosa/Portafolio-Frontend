@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SkillsService {
-  URL= 'portfolio-mariquenaallosa.koyeb.app/skills/';
+  URL= 'https://portfolio-mariquenaallosa.koyeb.app/skills/';
   constructor(private http: HttpClient) { }
     public get(): Observable<Skills[]>{
       console.log("El servicio portfolio skills esta corriendo");

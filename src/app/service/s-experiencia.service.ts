@@ -8,7 +8,7 @@ import { EducacionComponent } from '../components/educacion/educacion.component'
   providedIn: 'root'
 })
 export class SExperienciaService {
-  expURL = 'portfolio-mariquenaallosa.koyeb.app/explab/';
+  expURL = 'https://portfolio-mariquenaallosa.koyeb.app/explab/';
 
   constructor(private http: HttpClient) { }
   
