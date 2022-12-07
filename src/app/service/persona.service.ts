@@ -10,7 +10,7 @@ import { Persona } from 'interfaces';
 })
 
 export class PersonaService {
-  URL ='https://backendmariquena.herokuapp.com/personas/';
+  URL ='portfolio-mariquenaallosa.koyeb.app/personas/';
 
 
   constructor(private http: HttpClient) {}
