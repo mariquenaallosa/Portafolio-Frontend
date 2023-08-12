@@ -9,6 +9,7 @@ const routes: Routes = [
   {path:'inicio', component: HomeComponent},
   {path:'proyectos', component: ProyectosComponent},
   {path:'resumen', component: AcercaDeComponent},
+  {path: '', redirectTo: '/inicio', pathMatch: 'full' }, // Ruta por defecto
   {path:'login', component: LoginComponent}
 
   
