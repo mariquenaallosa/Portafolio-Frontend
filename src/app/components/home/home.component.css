@@ -47,7 +47,7 @@ div.home-container {
     padding: 0.4rem;
     display: flex;
     background:#272B30 ;
-    border-radius: 4px;
+    /* border-radius: 4px; */
     text-decoration: none;
     transition: all 100ms ease-in-out;
 }
