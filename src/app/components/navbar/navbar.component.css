@@ -7,49 +7,73 @@ nav{
     position: sticky;
     background-color: #454951;
     padding: 0;
+    box-shadow: none;
 }
 
 ul.container-items{
     display: block;
     color: #abb2bf;
     padding: 0;
+    margin: 0;
     list-style: none;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 }
 
 li.item {
     display: inline-block;
+
+        
+    box-shadow: none;
 }
 
-li.item a{
+
+li.item span a{
     cursor: pointer;
     display: inline-block;
-    padding: 7px 15px;
-    font-size: 0.6rem;
-    border-top: 4px solid #5C636E;
+    padding: 9.8px 15px;
     border-right: 1px solid #5C636E;
+    text-align: -webkit-match-parent;
+    font-size: 0.6rem;
     letter-spacing: 0.5px;
+    vertical-align: middle;
     text-transform: lowercase; 
     text-decoration: none; 
     background-color: transparent;
     color: hsl(219, 13.5%, 63.9%);
 }
 
-li.item a:hover {
+li.item span a:hover{
     color: #f3f3f3;
 }
 
+
 span.item__cont-txt {
-    margin-left: 8px;
-    font-size: 0.7rem;
+    margin-left: 0.5rem;
+    font-size: 0.5rem;
 }
 
 i {
-    font-size: 0.7rem;
+    font-size: 0.5rem;
 }
 
-i.bi-tools {
-    color: #FF4C29;
-}
 i.bi-house-door-fill{
-    font-size: 1.16em
+    font-size: 1em
 }
+
+.bi-x {
+    vertical-align: middle;
+    padding-left: 0.2rem;
+}
+
+.active-tab {
+    background-color: #282c34;
+    color: #f3f3f3;
+}
+
+.active-tab span.item__cont-txt,.active-tab .bi-house-door-fill{
+    color: #f3f3f3;
+}
+
+
