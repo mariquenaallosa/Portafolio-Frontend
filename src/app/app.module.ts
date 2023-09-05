@@ -22,6 +22,7 @@ import { interceptorProvider } from './service/interceptor-service';
 import {MatIconModule} from '@angular/material/icon';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ResumenComponent } from './components/resumen/resumen.component';
 
 
 
@@ -41,6 +42,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     HomeComponent,
     LoginComponent,
     NavbarComponent,
+    ResumenComponent,
   ],
   imports: [
     BrowserModule,
